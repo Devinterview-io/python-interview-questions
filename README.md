@@ -1,203 +1,878 @@
-<div data-v-5e9078c0=""><h1 data-v-5e9078c0="">
-      Top 96 Python interview
-      questions and answers in 2021.
-    </h1> <p data-v-5e9078c0="">
-      You can check all
-      96
-      Python interview questions here 👉
-      https://devinterview.io/dev/python-interview-questions
-    </p> <br data-v-5e9078c0=""> <br data-v-5e9078c0=""> <div data-v-5e9078c0="" class="unit"><div><h2>🔹 1. Name some characteristics of Python?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>Here are a few key points:</p><ul><li>Python is an <strong>interpreted language</strong>. That means that, unlike languages like C and its variants, Python does not need to be compiled before it is run. Other interpreted languages include <em>PHP</em> and <em>Ruby</em>.</li><li>Python is <strong>dynamically typed</strong>, this means that you don't need to state the types of variables when you declare them or anything like that. You can do things like <code>x=111</code> and then <code>x="I'm a string"</code> without error</li><li>Python is well suited to <strong>object orientated programming</strong> in that it allows the definition of classes along with composition and inheritance. Python does not have access specifiers (like C++'s <code>public</code>, <code>private</code>), the justification for this point is given as "we are all adults here"</li><li>In Python, <strong>functions are first-class objects</strong>. This means that they can be assigned to variables, returned from other functions and passed into functions. Classes are also first class objects</li><li>Writing Python code is quick but running it is <strong>often slower than compiled languages</strong>. Fortunately, Python allows the inclusion of C based extensions so bottlenecks can be optimised away and often are. The <code>numpy</code> package is a good example of this, it's really quite quick because a lot of the number crunching it does isn't actually done by Python</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.codementor.io/sheena/essential-python-interview-questions-du107ozr6" rel="noreferrer" target="_blank" title="Name some characteristics of Python?  Interview Questions Source To Answer">codementor.io</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 2. How do I modify a string?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>You can’t, because strings are immutable. In most situations, you should simply construct a new string from the various parts you want to assemble it from.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://docs.python.org/3/faq/programming.html#what-s-a-negative-index" rel="noreferrer" target="_blank" title="How do I modify a string? Interview Questions Source To Answer">docs.python.org</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 3. What are the built-in types available In Python?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p><strong>Immutable</strong> built-in datatypes of Python</p><ul><li>Numbers</li><li>Strings</li><li>Tuples</li></ul><p><strong>Mutable</strong> built-in datatypes of Python</p><ul><li>List</li><li>Dictionaries</li><li>Sets</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.techbeamers.com/python-interview-questions-programmers/" rel="noreferrer" target="_blank" title="What are the built-in types available In Python? Interview Questions Source To Answer">techbeamers.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 4. Name some benefits of Python</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><ul><li>Python is a dynamic-typed language. It means that you don’t need to mention the data type of variables during their declaration.</li><li>Python supports object orientated programming as you can define classes along with the composition and inheritance.</li><li>Functions in Python are like first-class objects. It suggests you can assign them to variables, return from other methods and pass as arguments.</li><li>Developing using Python is quick but running it is often slower than compiled languages.</li><li>Python has several usages like web-based applications, test automation, data modeling, big data analytics and much more.</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.techbeamers.com/python-interview-questions-programmers/" rel="noreferrer" target="_blank" title="Name some benefits of Python Interview Questions Source To Answer">techbeamers.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 5. Why would you use the "pass" statement?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>Python has the syntactical requirement that code blocks cannot be empty. Empty code blocks are however useful in a variety of different contexts, for example if you are designing a new class with some methods that you don't want to implement:</p><pre><code><span class="token cVar">class</span> <span class="token class-name">MyClass</span><span class="token cBase">(</span><span class="token builtin">object</span><span class="token cBase">)</span><span class="token cBase">:</span>
-    <span class="token cVar">def</span> <span class="token cMod">meth_a</span><span class="token cBase">(</span>self<span class="token cBase">)</span><span class="token cBase">:</span>
-        <span class="token cVar">pass</span>
+# 100 Core Python Interview Questions
 
-    <span class="token cVar">def</span> <span class="token cMod">meth_b</span><span class="token cBase">(</span>self<span class="token cBase">)</span><span class="token cBase">:</span>
-        <span class="token cVar">print</span> <span class="token cString">"I'm meth_b"</span></code></pre><p>If you were to leave out the pass, the code wouldn't run and you'll get an error:</p><pre><code>IndentationError<span class="token cBase">:</span> expected an indented block</code></pre><p>Other examples when we could use <code>pass</code>:</p><ul><li>Ignoring (all or) a certain type of <code>Exception</code></li><li>Deriving an exception class that does not add new behaviour</li><li>Testing that code runs properly for a few test values, without caring about the results</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/13886168/how-to-use-the-pass-statement" rel="noreferrer" target="_blank" title="Why would you use the &quot;pass&quot; statement? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 6. What are local variables and global variables in Python?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><ul><li><p><strong>Global Variables</strong>: Variables declared outside a function or in global space are called global variables. These variables can be accessed by any function in the program.</p></li><li><p><strong>Local Variables</strong>: Any variable declared inside a function is known as a local variable. This variable is present in the local space and not in the global space.</p></li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.edureka.co/blog/interview-questions/python-interview-questions/#WhatarelocalvariablesandglobalvariablesinPython?" rel="noreferrer" target="_blank" title="What are local variables and global variables in Python? Interview Questions Source To Answer">edureka.co</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 7. What are descriptors?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>Descriptors were introduced to Python way back in version 2.2. They provide the developer with the ability to add managed attributes to objects. The methods needed to create a descriptor are <code>__get__</code>, <code>__set__</code> and <code>__delete__</code>. If you define any of these methods, then you have created a descriptor.</p><p>Descriptors power a lot of the magic of Python’s internals. They are what make properties, methods and even the super function work. They are also used to implement the new style classes that were also introduced in Python 2.2.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.blog.pythonlibrary.org/2016/06/10/python-201-what-are-descriptors/" rel="noreferrer" target="_blank" title="What are descriptors? Interview Questions Source To Answer">blog.pythonlibrary.org</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 8. What Is The Benefit Of Using Flask?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p><strong>Flask</strong> is part of the micro-framework. Which means it will have little to no dependencies on external libraries. It makes the framework light while there is little dependency to update and less security bugs.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.wisdomjobs.com/e-university/flask-interview-questions.html" rel="noreferrer" target="_blank" title="What Is The Benefit Of Using Flask? Interview Questions Source To Answer">wisdomjobs.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 9. Does Python have a switch-case statement?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>In Python, we do not have a switch-case statement. Here, you may write a switch function to use. Else, you may use a set of if-elif-else statements. To implement a function for this, we may use a dictionary.</p><pre><code><span class="token cVar">def</span> <span class="token cMod">switch_demo</span><span class="token cBase">(</span>argument<span class="token cBase">)</span><span class="token cBase">:</span>
-    switcher <span class="token cBase">=</span> <span class="token cBase">{</span>
-        <span class="token cNum">1</span><span class="token cBase">:</span> <span class="token cString">"January"</span><span class="token cBase">,</span>
-        <span class="token cNum">2</span><span class="token cBase">:</span> <span class="token cString">"February"</span><span class="token cBase">,</span>
-        <span class="token cNum">3</span><span class="token cBase">:</span> <span class="token cString">"March"</span><span class="token cBase">,</span>
-        <span class="token cNum">4</span><span class="token cBase">:</span> <span class="token cString">"April"</span><span class="token cBase">,</span>
-        <span class="token cNum">5</span><span class="token cBase">:</span> <span class="token cString">"May"</span><span class="token cBase">,</span>
-        <span class="token cNum">6</span><span class="token cBase">:</span> <span class="token cString">"June"</span><span class="token cBase">,</span>
-        <span class="token cNum">7</span><span class="token cBase">:</span> <span class="token cString">"July"</span><span class="token cBase">,</span>
-        <span class="token cNum">8</span><span class="token cBase">:</span> <span class="token cString">"August"</span><span class="token cBase">,</span>
-        <span class="token cNum">9</span><span class="token cBase">:</span> <span class="token cString">"September"</span><span class="token cBase">,</span>
-        <span class="token cNum">10</span><span class="token cBase">:</span> <span class="token cString">"October"</span><span class="token cBase">,</span>
-        <span class="token cNum">11</span><span class="token cBase">:</span> <span class="token cString">"November"</span><span class="token cBase">,</span>
-        <span class="token cNum">12</span><span class="token cBase">:</span> <span class="token cString">"December"</span>
-    <span class="token cBase">}</span>
-    <span class="token cVar">print</span> switcher<span class="token cBase">.</span>get<span class="token cBase">(</span>argument<span class="token cBase">,</span> <span class="token cString">"Invalid month"</span><span class="token cBase">)</span></code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://github.com/ramlaxman/Python-Interview-Questions/blob/master/Interview-Questions.md" rel="noreferrer" target="_blank" title=" Does Python have a switch-case statement? Interview Questions Source To Answer">github.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 10. What is pickling and unpickling?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>The pickle module implements a fundamental, but powerful algorithm for serializing and de-serializing a Python object structure.</p><ul><li><strong>Pickling</strong> - is the process whereby a Python object hierarchy is converted into a byte stream,</li><li><strong>Unpickling</strong> - is the inverse operation, whereby a byte stream is converted back into an object hierarchy.</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/7501947/understanding-pickling-in-python" rel="noreferrer" target="_blank" title="What is pickling and unpickling? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 11. When to use a tuple vs list vs dictionary in Python?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><ul><li>Use a <code>tuple</code> to store a sequence of items that will not change.</li><li>Use a <code>list</code> to store a sequence of items that may change.</li><li>Use a <code>dictionary</code> when you want to associate pairs of two items.</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/21389767/when-to-use-a-tuple-vs-list-vs-dictionary-in-python" rel="noreferrer" target="_blank" title="When to use a tuple vs list vs dictionary in Python? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 12. What is negative index in Python?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>Python sequences can be index in positive and negative numbers. For positive index, 0 is the first index, 1 is the second index and so forth. For negative index, (-1) is the last index and (-2) is the second last index and so forth.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.guru99.com/python-interview-questions-answers.html" rel="noreferrer" target="_blank" title="What is negative index in Python? Interview Questions Source To Answer">guru99.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 13. Suppose lst is 2, 33, 222, 14, 25, What is lst-1?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div class="mb-2"><span class="h5">Problem</span></div><div><div class="AnswerBody"><p>Suppose <code>lst</code> is <code>[2, 33, 222, 14, 25]</code>, What is <code>lst[-1]</code>?</p></div></div><div><div class="AnswerBody"><p>It's <code>25</code>. Negative numbers mean that you count from the right instead of the left. So, <code>lst[-1]</code> refers to the last element, <code>lst[-2]</code> is the second-last, and so on.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://adevait.com/python/interview-questions" rel="noreferrer" target="_blank" title="Suppose lst is [2, 33, 222, 14, 25], What is lst[-1]? Interview Questions Source To Answer">adevait.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 14. How do you list the functions in a module?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>Use the <code>dir()</code> method to list the functions in a module:</p><pre><code><span class="token cVar">import</span> some_module
-<span class="token cVar">print</span> <span class="token builtin">dir</span><span class="token cBase">(</span>some_module<span class="token cBase">)</span></code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.toptal.com/react/interview-questions" rel="noreferrer" target="_blank" title="How do you list the functions in a module? Interview Questions Source To Answer">toptal.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 15. What is PEP 8?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>PEP 8 is the latest Python coding standard, a set of coding recommendations. It guides to deliver more readable&nbsp;Python code.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.techbeamers.com/python-interview-questions-programmers/" rel="noreferrer" target="_blank" title="What is PEP 8? Interview Questions Source To Answer">techbeamers.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 16. What are some drawbacks of the Python language?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>The two most common valid answers to this question (by no means intended as an exhaustive list) are:</p><ul><li>The Global Interpreter Lock (GIL). CPython (the most common Python implementation) is not fully thread safe. In order to support multi-threaded Python programs, CPython provides a global lock that must be held by the current thread before it can safely access Python objects. As a result, no matter how many threads or processors are present, only one thread is ever being executed at any given time. In comparison, it is worth noting that the PyPy implementation discussed earlier in this article provides a stackless mode that supports micro-threads for massive concurrency.</li><li>Execution speed. Python can be slower than compiled languages since it is interpreted. (Well, sort of. See our earlier discussion on this topic.)</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://github.com/ramlaxman/Python-Interview-Questions/blob/master/Interview-Questions.md" rel="noreferrer" target="_blank" title="What are some drawbacks of the Python language? Interview Questions Source To Answer">github.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 17. What is lambda functions in Python?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>A <strong>lambda function</strong> is a small anonymous function. A lambda function can take any number of arguments, but can only have one expression.</p><p>Consider:</p><pre><code>x <span class="token cBase">=</span> <span class="token cVar">lambda</span> a <span class="token cBase">:</span> a <span class="token cBase">+</span> <span class="token cNum">10</span>
-<span class="token cVar">print</span><span class="token cBase">(</span>x<span class="token cBase">(</span><span class="token cNum">5</span><span class="token cBase">)</span><span class="token cBase">)</span> <span class="token cComment"># Output: 15</span></code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.w3schools.com/python/python_lambda.asp" rel="noreferrer" target="_blank" title="What is lambda functions in Python? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 18. What are the rules for local and global variables in Python?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>In Python, variables that are only referenced inside a function are implicitly global. If a variable is assigned a value anywhere within the function’s body, it’s assumed to be a local unless explicitly declared as global.</p><p>Requiring global for assigned variables provides a bar against unintended side-effects.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://docs.python.org/3/faq/programming.html#what-s-a-negative-index" rel="noreferrer" target="_blank" title="What are the rules for local and global variables in Python? Interview Questions Source To Answer">docs.python.org</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 19. Given variables a and b, switch their values so that b has the value of a, and a has the value of b without using an intermediary variable.</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><pre><code>a<span class="token cBase">,</span> b <span class="token cBase">=</span> b<span class="token cBase">,</span> a</code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://adevait.com/python/interview-questions" rel="noreferrer" target="_blank" title="Given variables a and b, switch their values so that b has the value of a, and a has the value of b without using an intermediary variable. Interview Questions Source To Answer">adevait.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 20. Explain how does Python memory management work?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>Python -- like C#, Java and many other languages -- uses <em>garbage collection</em> rather than manual memory management. You just freely create objects and the language's memory manager periodically (or when you specifically direct it to) looks for any objects that are no longer referenced by your program.</p><p>If you want to hold on to an object, just hold a reference to it. If you want the object to be freed (eventually) remove any references to it.</p><pre><code><span class="token cVar">def</span> <span class="token cMod">foo</span><span class="token cBase">(</span>names<span class="token cBase">)</span><span class="token cBase">:</span>
-  <span class="token cVar">for</span> name <span class="token cVar">in</span> names<span class="token cBase">:</span>
-    <span class="token cVar">print</span> name
+<div>
+<p align="center">
+<a href="https://devinterview.io/questions/web-and-mobile-development/">
+<img src="https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/github-blog-img%2Fweb-and-mobile-development-github-img.jpg?alt=media&token=1b5eeecc-c9fb-49f5-9e03-50cf2e309555" alt="web-and-mobile-development" width="100%">
+</a>
+</p>
 
-foo<span class="token cBase">(</span><span class="token cBase">[</span><span class="token cString">"Eric"</span><span class="token cBase">,</span> <span class="token cString">"Ernie"</span><span class="token cBase">,</span> <span class="token cString">"Bert"</span><span class="token cBase">]</span><span class="token cBase">)</span>
-foo<span class="token cBase">(</span><span class="token cBase">[</span><span class="token cString">"Guthtrie"</span><span class="token cBase">,</span> <span class="token cString">"Eddie"</span><span class="token cBase">,</span> <span class="token cString">"Al"</span><span class="token cBase">]</span><span class="token cBase">)</span></code></pre><p>Each of these calls to foo creates a Python <code>list</code> object initialized with three values. For the duration of the foo call they are referenced by the variable names, but as soon as that function exits no variable is holding a reference to them and they are fair game for the garbage collector to delete.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/11596371/how-does-python-memory-management-work" rel="noreferrer" target="_blank" title="Explain how does Python memory management work? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 21. What are decorators in Python?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>In Python, functions are the first class objects, which means that:</p><ul><li>Functions are objects; they can be referenced to, passed to a variable and returned from other functions as well.</li><li>Functions can be defined inside another function and can also be passed as argument to another function.</li></ul><p><strong>Decorators</strong> are very powerful and useful tool in Python since it allows programmers to modify the behavior of function or class. Decorators allow us to wrap another function in order to extend the behavior of wrapped function, without permanently modifying it.</p><pre><code><span class="token cBase">@gfg_decorator</span>
-<span class="token cVar">def</span> <span class="token cMod">hello_decorator</span><span class="token cBase">(</span><span class="token cBase">)</span><span class="token cBase">:</span> 
-    <span class="token cVar">print</span><span class="token cBase">(</span><span class="token cString">"Gfg"</span><span class="token cBase">)</span> 
+#### You can also find all 100 answers here 👉 [Devinterview.io - Python](https://devinterview.io/questions/web-and-mobile-development/python-interview-questions)
+
+<br>
+
+## 1. What are the _key features_ of _Python_?
+
+**Python** is a versatile and popular programming language known for its simplicity, **elegant syntax**, and a vast ecosystem of libraries. Let's look at some of the key features that make Python stand out.
+
+### Key Features of Python
+
+#### 1. Interpreted and Interactive
+
+Python uses an interpreter, allowing developers to run code **line-by-line**, making it ideal for rapid prototyping and debugging.
+
+#### 2. Easy to Learn and Read
+
+Python's **clean, readable syntax**, often resembling plain English, reduces the cognitive load for beginners and experienced developers alike.
+
+#### 3. Cross-Platform Compatibility
+
+Python is versatile, running on various platforms, such as Windows, Linux, and macOS, without requiring platform-specific modifications.
+
+#### 4. Modular and Scalable
+
+Developers can organize their code into modular packages and reusabale functions.
+
+#### 5. Rich Library Ecosystem
+
+The Python Package Index (PyPI) hosts over 260,000 libraries, providing solutions for tasks ranging from web development to data analytics.
+
+#### 6. Exceptionally Versatile
+
+From web applications to scientific computing, Python is equally proficient in diverse domains.
+
+#### 7. Memory Management
+
+Python seamlessly allocates and manages memory, shielding developers from low-level tasks, such as memory deallocation.
+
+#### 8. Dynamically Typed
+
+Python infers the data type of a variable during execution, easing the declartion and manipulation of variables.
+
+#### 9. Object-Oriented
+
+Python supports object-oriented paradigms, where everything is an **object**, offering attributes and methods to manipulate data.
+
+#### 10. Extensible
+
+With its C-language API, developers can integrate performance-critical tasks and existing C modules with Python.
+<br>
+
+## 2. How is _Python_ executed?
+
+**Python** source code is processed through various steps before it can be executed. Let's explore the key stages in this process.
+
+### Compilation & Interpretation
+
+Python code goes through both **compilation** and **interpretation**. 
+
+- **Bytecode Compilation**: High-level Python code is transformed into low-level bytecode by the Python interpreter with the help of a compiler. Bytecode is a set of instructions that Python's virtual machine (PVM) can understand and execute.
   
-<span class="token cString">'''Above code is equivalent to:
+- **On-the-fly Interpretation**: The PVM reads and executes bytecode instructions in a step-by-step manner.
   
-def hello_decorator(): 
-    print("Gfg") 
-      
-hello_decorator = gfg_decorator(hello_decorator)'''</span></code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/735975/static-methods-in-python/735978#735978" rel="noreferrer" target="_blank" title="What are decorators in Python? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 22. What are the Dunder/Magic/Special methods in Python? Name a few.</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p><strong>Dunder (derived from double underscore) methods</strong> are special/magic predefined methods in Python, with names that start and end with a double underscore. There's nothing really magical about them. Examples of these include:  </p><ul><li><code>__init__</code> - constructor</li><li><code>__str__</code>, <code>__repr__</code> - object representation (casting to string, printing)</li><li><code>__len__</code>, <code>__next__</code>... - generators</li><li><code>__enter__</code>, <code>__exit__</code> - context managers</li><li><code>__eq__</code>, <code>__lt__</code>, <code>__gt__</code> - operator overloading</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://adevait.com/python/interview-questions" rel="noreferrer" target="_blank" title="What are the Dunder/Magic/Special methods in Python? Name a few. Interview Questions Source To Answer">adevait.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 23. What is the process of compilation and linking in Python?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p><strong>Compilation</strong>: The source code in python is saved as a .py file which is then compiled into a format known as byte code, byte code is then converted to machine code. After the compilation, the code is stored in .pyc files and is regenerated when the source is updated. This process is known as compilation.</p><p><strong>Linking</strong>: Linking is the final phase where all the functions are linked with their definitions as the linker knows where all these functions are implemented. This process is known as linking.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.tutorialspoint.com/what-is-the-process-of-compilation-and-linking-in-python" rel="noreferrer" target="_blank" title="What is the process of compilation and linking in Python? Interview Questions Source To Answer">tutorialspoint.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 24. What is monkey patching and is it ever a good idea?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>Monkey patching is changing the behaviour of a function or object after it has already been defined. For example:</p><pre><code><span class="token cVar">import</span> datetime
-datetime<span class="token cBase">.</span>datetime<span class="token cBase">.</span>now <span class="token cBase">=</span> <span class="token cVar">lambda</span><span class="token cBase">:</span> datetime<span class="token cBase">.</span>datetime<span class="token cBase">(</span><span class="token cNum">2012</span><span class="token cBase">,</span> <span class="token cNum">12</span><span class="token cBase">,</span> <span class="token cNum">12</span><span class="token cBase">)</span></code></pre><p>Most of the time it's a pretty terrible idea - it is usually best if things act in a well-defined way. One reason to monkey patch would be in testing. The mock package is very useful to this end.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.codementor.io/sheena/essential-python-interview-questions-du107ozr6" rel="noreferrer" target="_blank" title="What is monkey patching and is it ever a good idea? Interview Questions Source To Answer">codementor.io</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 25. What are immutable objects in Python?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p><strong>An object with a fixed value</strong>. Immutable objects include numbers, strings and tuples. Such an object cannot be altered. A new object has to be created if a different value has to be stored. They play an important role in places where a constant hash value is needed, for example as a key in a dictionary.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://docs.python.org/3/faq/programming.html#what-s-a-negative-index" rel="noreferrer" target="_blank" title="What are immutable objects in Python? Interview Questions Source To Answer">docs.python.org</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 26. What's the difference between lists and tuples?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>The key difference is that <code>tuples</code> are immutable. This means that you cannot change the values in a tuple once you have created it. So if you're going to need to change the values use a <code>List</code>.</p><p>Apart from tuples being immutable there is also a semantic distinction that should guide their usage. Tuples are heterogeneous data structures (i.e., their entries have different meanings), while lists are homogeneous sequences. Tuples have structure, lists have order.</p><p>One example of tuple be pairs of page and line number to reference locations in a book, e.g.:</p><pre><code>my_location <span class="token cBase">=</span> <span class="token cBase">(</span><span class="token cNum">42</span><span class="token cBase">,</span> <span class="token cNum">11</span><span class="token cBase">)</span>  <span class="token cComment"># page number, line number</span></code></pre><p>You can then use this as a key in a dictionary to store notes on locations. A list on the other hand could be used to store multiple locations. Naturally one might want to add or remove locations from the list, so it makes sense that lists are mutable. On the other hand it doesn't make sense to add or remove items from an existing location - hence tuples are immutable.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/44746923/how-to-model-recursive-data-structures-in-graphql" rel="noreferrer" target="_blank" title="What's the difference between lists and tuples? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 27. What is the python “with” statement designed for?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>The <code>with</code> statement simplifies exception handling by encapsulating common preparation and cleanup tasks in so-called <em>context managers</em>.</p><p>For instance, the <code>open</code> statement is a context manager in itself, which lets you open a file, keep it open as long as the execution is in the context of the <code>with</code> statement where you used it, and close it as soon as you leave the context, no matter whether you have left it because of an exception or during regular control flow. </p><p>As a result you could do something like:</p><pre><code><span class="token cVar">with</span> <span class="token cMod">open</span><span class="token cBase">(</span><span class="token cString">"foo.txt"</span><span class="token cBase">)</span> <span class="token cVar">as</span> foo_file<span class="token cBase">:</span>
-    data <span class="token cBase">=</span> foo_file<span class="token cBase">.</span><span class="token cMod">read</span><span class="token cBase">(</span><span class="token cBase">)</span></code></pre><p>OR</p><pre><code><span class="token cVar">from</span> contextlib <span class="token cVar">import</span> nested
-<span class="token cVar">with</span> <span class="token cMod">nested</span><span class="token cBase">(</span><span class="token cMod">A</span><span class="token cBase">(</span><span class="token cBase">)</span><span class="token cBase">,</span> <span class="token cMod">B</span><span class="token cBase">(</span><span class="token cBase">)</span><span class="token cBase">,</span> <span class="token cMod">C</span><span class="token cBase">(</span><span class="token cBase">)</span><span class="token cBase">)</span> <span class="token cVar">as</span><span class="token cBase">(</span><span class="token cMod">X</span><span class="token cBase">,</span> <span class="token cMod">Y</span><span class="token cBase">,</span> <span class="token cMod">Z</span><span class="token cBase">)</span><span class="token cBase">:</span>
-    <span class="token cMod">do_something</span><span class="token cBase">(</span><span class="token cBase">)</span></code></pre><p>OR (Python 3.1)</p><pre><code><span class="token cVar">with</span> <span class="token cMod">open</span><span class="token cBase">(</span><span class="token cString">'data'</span><span class="token cBase">)</span> <span class="token cVar">as</span> input_file<span class="token cBase">,</span> <span class="token cMod">open</span><span class="token cBase">(</span><span class="token cString">'result'</span><span class="token cBase">,</span> <span class="token cString">'w'</span><span class="token cBase">)</span> <span class="token cVar">as</span> output_file<span class="token cBase">:</span>
-    <span class="token cVar">for</span> line <span class="token cVar">in</span> input_file<span class="token cBase">:</span>
-        output_file<span class="token cBase">.</span><span class="token cMod">write</span><span class="token cBase">(</span><span class="token cMod">parse</span><span class="token cBase">(</span>line<span class="token cBase">)</span><span class="token cBase">)</span></code></pre><p>OR</p><pre><code>lock <span class="token cBase">=</span> threading<span class="token cBase">.</span><span class="token cMod">Lock</span><span class="token cBase">(</span><span class="token cBase">)</span>
-<span class="token cVar">with</span> lock<span class="token cBase">:</span> #Critical section <span class="token cVar">of</span> code</code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/3012488/what-is-the-python-with-statement-designed-for" rel="noreferrer" target="_blank" title="What is the python “with” statement designed for? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 28. Explain the UnboundLocalError exception and how to avoid it?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div class="mb-2"><span class="h5">Problem</span></div><div><div class="AnswerBody"><p>Consider:</p><pre><code><span class="token cBase">&gt;&gt;</span><span class="token cBase">&gt;</span> x <span class="token cBase">=</span> <span class="token cNum">10</span>
-<span class="token cBase">&gt;&gt;</span><span class="token cBase">&gt;</span> <span class="token cVar">def</span> <span class="token cMod">foo</span><span class="token cBase">(</span><span class="token cBase">)</span><span class="token cBase">:</span>
-<span class="token cBase">.</span><span class="token cBase">.</span><span class="token cBase">.</span>     <span class="token cVar">print</span><span class="token cBase">(</span>x<span class="token cBase">)</span>
-<span class="token cBase">.</span><span class="token cBase">.</span><span class="token cBase">.</span>     x <span class="token cBase">+=</span> <span class="token cNum">1</span></code></pre><p>And the output:</p><pre><code><span class="token cBase">&gt;&gt;</span><span class="token cBase">&gt;</span> foo<span class="token cBase">(</span><span class="token cBase">)</span>
-Traceback <span class="token cBase">(</span>most recent call last<span class="token cBase">)</span><span class="token cBase">:</span>
-  <span class="token cBase">.</span><span class="token cBase">.</span><span class="token cBase">.</span>
-UnboundLocalError<span class="token cBase">:</span> local variable <span class="token cString">'x'</span> referenced before assignment</code></pre><p>Why am I getting an UnboundLocalError when the variable has a value?</p></div></div><div><div class="AnswerBody"><p>When you make an assignment to a variable in a scope, that variable becomes local to that scope and shadows any similarly named variable in the outer scope. Since the last statement in foo assigns a new value to x, the compiler recognizes it as a local variable. Consequently when the earlier print(x) attempts to print the uninitialized local variable and an error results.</p><p>In the example above you can access the outer scope variable by declaring it <code>global</code>:</p><pre><code><span class="token cBase">&gt;&gt;</span><span class="token cBase">&gt;</span> x <span class="token cBase">=</span> <span class="token cNum">10</span>
-<span class="token cBase">&gt;&gt;</span><span class="token cBase">&gt;</span> <span class="token cVar">def</span> <span class="token cMod">foobar</span><span class="token cBase">(</span><span class="token cBase">)</span><span class="token cBase">:</span>
-<span class="token cBase">.</span><span class="token cBase">.</span><span class="token cBase">.</span>     <span class="token cVar">global</span> x
-<span class="token cBase">.</span><span class="token cBase">.</span><span class="token cBase">.</span>     <span class="token cVar">print</span><span class="token cBase">(</span>x<span class="token cBase">)</span>
-<span class="token cBase">.</span><span class="token cBase">.</span><span class="token cBase">.</span>     x <span class="token cBase">+=</span> <span class="token cNum">1</span>
-<span class="token cBase">&gt;&gt;</span><span class="token cBase">&gt;</span> foobar<span class="token cBase">(</span><span class="token cBase">)</span>
-<span class="token cNum">10</span></code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://docs.python.org/3/faq/programming.html#what-s-a-negative-index" rel="noreferrer" target="_blank" title="Explain the UnboundLocalError exception and how to avoid it? Interview Questions Source To Answer">docs.python.org</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 29. What does this stuff mean: *args, **kwargs? And why would we use it?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><ul><li><p>Use <code>*args</code> when we aren't sure how many arguments are going to be passed to a function, or if we want to pass a stored list or tuple of arguments to a function. </p></li><li><p><code>**kwargs</code> is used when we dont know how many keyword arguments will be passed to a function, or it can be used to pass the values of a dictionary as keyword arguments. </p></li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.codementor.io/sheena/essential-python-interview-questions-du107ozr6" rel="noreferrer" target="_blank" title="What does this stuff mean: *args, **kwargs? And why would we use it? Interview Questions Source To Answer">codementor.io</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 30. How can you share global variables across modules?</h2></div> <div><h3>Answer:</h3> <div class="answer"><div><div><div class="AnswerBody"><p>The canonical way to share information across modules within a single program is to create a special configuration module (often called <code>config</code> or <code>cfg</code>). Just import the configuration module in all modules of your application; the module then becomes available as a global name. Because there is only one instance of each module, any changes made to the module object get reflected everywhere. </p><p>File: config.py</p><pre><code>x <span class="token cBase">=</span> <span class="token cNum">0</span> <span class="token cComment"># Default value of the 'x' configuration setting</span></code></pre><p>File: mod.py</p><pre><code><span class="token cVar">import</span> config
-config<span class="token cBase">.</span>x <span class="token cBase">=</span> <span class="token cNum">1</span></code></pre><p>File: main.py</p><pre><code><span class="token cVar">import</span> config
-<span class="token cVar">import</span> mod
-<span class="token cVar">print</span> config<span class="token cBase">.</span>x</code></pre><p>Module variables are also often used to implement the Singleton design pattern, for the same reason.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/7948494/whats-the-difference-between-a-python-module-and-a-python-package" rel="noreferrer" target="_blank" title="How can you share global variables across modules? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 31. What is the function of “self”?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 32. What is the difference between range and xrange functions in Python 2.X?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 33. What's the difference between the list methods append() and extend()?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 34. What are the wheels and eggs? What is the difference?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 35. What are the key differences between Python 2 and 3?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 36. After executing the above code, what is the value of y?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 37. What are virtualenvs?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 38. What is the difference between range and xrange? How has this changed over time?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 39. What is a "callable"?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 40. Is it possible to have static methods in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 41. What is a None value?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 42. What Is Flask-WTF And What Are Their Features?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 43. How can I create a copy of an object in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 44. What is namespace in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 45. How the string does get converted to a number?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 46. What does the Python nonlocal statement do (in Python 3.0 and later)?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 47. What is introspection/reflection and does Python support it?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 48. Is this valid in Python and why?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 49. How do I check if a list is empty?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 50. How to make a flat list out of list of lists?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 51. What is the most efficient way to concatenate many strings together?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 52. Write a program to check whether the object is of a class or its subclass.</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 53. Can you explain closures (as they relate to Python)?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 54. Why are Python's 'private' methods not actually private?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 55. Is there a tool to help find bugs or perform static analysis?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 56. What's the difference between a Python module and a Python package?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 57. What is an alternative to GIL?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 58. What is the purpose of the single underscore “_” variable in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 59. What is GIL?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 60. What is MRO in Python? How does it work?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 61. How is set() implemented internally?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 62. What is the difference between @staticmethod and @classmethod?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 63. Explain how you reverse a generator?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 64. What is monkey patching? How to use it in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 65. Why are default values shared between objects?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 66. Whenever you exit Python, is all memory de-allocated?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 67. How is memory managed in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 68. What is Cython?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 69. What is the difference between old style and new style classes in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 70. Why aren't python nested functions called closures?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 71. What does an 'x = y or z' assignment do in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 72. What is the difference between deep and shallow copy?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 73. What are metaclasses in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 74. How to work with transitive dependencies?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 75. What are the advantages of NumPy over regular Python lists?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 76. Is it a good idea to use multi-thread to speed your Python code?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 77. Why Python (CPython and others) uses the GIL?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 78. Is there a simple, elegant way to define singletons?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 79. What is a global interpreter lock (GIL) and why is it an issue?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 80. Why isn't all memory freed when Python exits?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 81. Describe Python's garbage collection mechanism in brief.</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 82. Why use else in try/except construct in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 83. Why would you use metaclasses?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 84. Is there any downside to the -O flag apart from missing on the built-in debugging information?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 85. What does Python optimization (-O or PYTHONOPTIMIZE) do?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 86. Will the code below work? Why or why not?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 87. Create function that similar to os.walk</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 88. What will be the output of the code below?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 89. How to make a chain of function decorators?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 90. How do I write a function with output parameters (call by reference)</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 91. What will be returned by this code?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 92. Show me three different ways of fetching every third item in the list</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 93. How to read a 8GB file in Python?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 94. How should one access nonlocal variables in closures in python 2.x?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 95. What will this code return?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div><div data-v-5e9078c0="" class="unit"><div><h2>🔹 96. How do I access a module written in Python from C?</h2></div> <div>
-    👉🏼 Check
-    <a href="https://devinterview.io/dev/python-interview-questions">all 96 answers</a></div> <br><br></div> <div data-v-5e9078c0="" class="end"></div> <br data-v-5e9078c0="">
-    Thanks 🙌 for reading and good luck on your next tech interview!
-    <br data-v-5e9078c0="">
-    Explore 3800+ dev interview question here 👉
-    <a data-v-5e9078c0="" href="https://devinterview.io/">Devinterview.io</a></div>
+This dual approach known as "compile and then interpret" is what sets Python (and certain other languages) apart. 
+
+### Bytecode versus Machine Code Execution
+
+While some programming languages compile directly to machine code, Python compiles to bytecode. This bytecode is then executed by the Python virtual machine. This extra step of bytecode execution **can make Python slower** in certain use-cases when compared to languages that compile directly to machine code.
+
+The advantage, however, is that bytecode is platform-independent. A Python program can be run on any machine with a compatible PVM, ensuring cross-platform support.
+
+### Source Code to Bytecode: Compilation Steps
+
+1. **Lexical Analysis**: The source code is broken down into tokens, identifying characters and symbols for Python to understand.
+2. **Syntax Parsing**: Tokens are structured into a parse tree to establish the code's syntax and grammar.
+3. **Semantic Analysis**: Code is analyzed for its meaning and context, ensuring it's logically sound.
+4. **Bytecode Generation**: Based on the previous steps, bytecode instructions are created.
+
+### Just-In-Time (JIT) Compilation
+
+While Python typically uses a combination of interpretation and compilation, **JIT** boosts efficiency by selectively compiling parts of the program that are frequently used or could benefit from optimization.
+
+JIT compiles sections of the program to machine code on-the-fly. This direct machine code generation for frequently executed parts can significantly speed up those segments, blurring the line between traditional interpreters and compilers.
+
+### Code Example: Disassembly of Bytecode
+
+```python
+import dis
+
+def example_func():
+    return 15 * 20
+
+# Disassemble to view bytecode instructions
+dis.dis(example_func)
+```
+
+Disassembling code using Python's `dis` module can reveal the underlying bytecode instructions that the PVM executes. Here's the disassembled output for the above code:
+
+```plaintext
+  4           0 LOAD_CONST               2 (300)
+              2 RETURN_VALUE
+```
+<br>
+
+## 3. What is _PEP 8_ and why is it important?
+
+**PEP 8** is a style guide for Python code that promotes code consistency, readability, and maintainability. It's named after Python Enhancement Proposal (PEP), the mechanism used to propose and standardize changes to the Python language.
+
+PEP 8 is not a set-in-stone rule book, but it provides general guidelines that help developers across the Python community write code that's visually consistent and thus easier to understand.
+
+### Key Design Principles
+
+PEP 8 emphasizes:
+
+- **Readability**: Code should be easy to read and understand, even by someone who didn't write it.
+- **Consistency**: Codebase should adhere to a predictable style so there's little cognitive load in reading or making changes.
+- **One Way to Do It**: Instead of offering multiple ways to write the same construct, PEP 8 advocates for a single, idiomatic style.
+
+### Base Rules
+
+- **Indentation**: Use 4 spaces for each level of logical indentation.
+- **Line Length**: Keep lines of code limited to 79 characters. This number is a guideline; longer lines are acceptable in certain contexts.
+- **Blank Lines**: Use them to separate logical sections but not excessively.
+
+### Naming Styles
+
+- **Class Names**: Prefer `CamelCase`.
+- **Function and Variable Names**: Use `lowercase_with_underscores`.
+- **Module Names**: Keep them short and in `lowercase`.
+
+### Documentation
+
+- Use triple quotes for documentation strings.
+- Comments should be on their own line and explain the reason for the following code block.
+
+### Whitespace Usage
+
+- **Operators**: Surround them with a single space.
+- **Commas**: Follow them with a space.
+
+### Example: Directory Walker
+
+Here is the `PEP8` compliant code:
+
+```python
+import os
+
+def walk_directory(path):
+    for dirpath, dirnames, filenames in os.walk(path):
+        for filename in filenames:
+            file_path = os.path.join(dirpath, filename)
+            print(file_path)
+
+walk_directory('/path/to/directory')
+```
+<br>
+
+## 4. How is memory allocation and garbage collection handled in _Python_?
+
+In Python, **both memory allocation** and **garbage collection** are handled discretely.
+
+### Memory Allocation
+
+- The "heap" is the pool of memory for storing objects. The Python memory manager allocates and deallocates this space as needed.
+
+- In latest Python versions, the `obmalloc` system is responsible for small object allocations. This system preallocates small and medium-sized memory blocks to manage frequently created small objects.
+
+- The `allocator` abstracts the system-level memory management, employing memory management libraries like `Glibc` to interact with the operating system.
+
+- Larger blocks of memory are primarily obtained directly from the operating system.
+
+- **Stack** and **Heap** separation is joined by "Pool Allocator" for internal use.
+
+### Garbage Collection
+
+Python employs a method called **reference counting** along with a **cycle-detecting garbage collector**.
+
+#### Reference Counting
+
+- Every object has a reference count. When an object's count drops to zero, it is immediately deallocated.
+
+- This mechanism is swift, often releasing objects instantly without the need for garbage collection.
+
+- However, it can be insufficient in handling **circular references**.
+
+#### Cycle-Detecting Garbage Collector
+
+- Python has a separate garbage collector that periodically identifies and deals with circular references.
+
+- This is, however, a more time-consuming process and is invoked less frequently than reference counting.
+
+### Memory Management in Python vs. C
+
+Python handles memory management quite differently from languages like C or C++:
+
+- In Python, the developer isn't directly responsible for memory allocations or deallocations, reducing the likelihood of memory-related bugs.
+
+- The memory manager in Python is what's known as a **"general-purpose memory manager"** that can be slower than the dedicated memory managers of C or C++ in certain contexts.
+
+- Python, especially due to the existence of a garbage collector, might have memory overhead compared to C or C++ where manual memory management often results in minimal overhead is one of the factors that might contribute to Python's sometimes slower performance.
+
+- The level of memory efficiency isn't as high as that of C or C++. This is because Python is designed to be convenient and easy to use, often at the expense of some performance optimization.
+<br>
+
+## 5. What are the _built-in data types_ in _Python_?
+
+Python offers numerous **built-in data types** that provide varying functionalities and utilities.
+
+### Immutable Data Types
+
+#### 1. int
+   Represents a whole number, such as 42 or -10.
+
+#### 2. float
+   Represents a decimal number, like 3.14 or -0.01.
+
+#### 3. complex
+   Comprises a real and an imaginary part, like 3 + 4j.
+
+#### 4. bool
+   Represents a boolean value, True or False.
+
+#### 5. str
+   A sequence of unicode characters enclosed within quotes.
+
+#### 6. tuple
+   An ordered collection of items, often heterogeneous, enclosed within parentheses.
+
+#### 7. frozenset
+   A set of unique, immutable objects, similar to sets, enclosed within curly braces.
+
+#### 8. bytes
+   Represents a group of 8-bit bytes, often used with binary data, enclosed within brackets.
+
+#### 9. bytearray
+   Resembles the 'bytes' type but allows mutable changes.
+
+#### 10. NoneType
+   Indicates the absence of a value.
+
+### Mutable Data Types
+
+#### 1. list
+   A versatile ordered collection that can contain different data types and offers dynamic sizing, enclosed within square brackets.
+
+#### 2. set
+   Represents a unique set of objects and is characterized by curly braces.
+
+#### 3. dict
+   A versatile key-value paired collection enclosed within braces.
+
+#### 4. memoryview
+   Points to the memory used by another object, aiding efficient viewing and manipulation of data.
+
+#### 5. array
+   Offers storage for a specified type of data, similar to lists but with dedicated built-in functionalities.
+
+#### 6. deque
+   A double-ended queue distinguished by optimized insertion and removal operations from both its ends.
+
+#### 7. object
+   The base object from which all classes inherit.
+
+#### 8. types.SimpleNamespace
+   Grants the capability to assign attributes to it.
+
+#### 9. types.ModuleType
+   Represents a module body containing attributes.
+
+#### 10. types.FunctionType
+   Defines a particular kind of function.
+<br>
+
+## 6. Explain the difference between a _mutable_ and _immutable_ object.
+
+Let's look at the difference between **mutable** and **immutable** objects.
+
+### Key Distinctions
+
+- **Mutable Objects**: Can be modified after creation.
+- **Immutable Objects**: Cannot be modified after creation.
+
+### Common Examples
+
+- **Mutable**: Lists, Sets, Dictionaries
+- **Immutable**: Tuples, Strings, Numbers
+
+### Code Example: Immutability in Python
+
+Here is the Python code:
+
+```python
+# Immutable objects (int, str, tuple)
+num = 42
+text = "Hello, World!"
+my_tuple = (1, 2, 3)
+
+# Trying to modify will raise an error
+try:
+    num += 10
+    text[0] = 'M'  # This will raise a TypeError
+    my_tuple[0] = 100  # This will also raise a TypeError
+except TypeError as e:
+    print(f"Error: {e}")
+
+# Mutable objects (list, set, dict)
+my_list = [1, 2, 3]
+my_dict = {'a': 1, 'b': 2}
+
+# Can be modified without issues
+my_list.append(4)
+del my_dict['a']
+
+# Checking the changes
+print(my_list)  # Output: [1, 2, 3, 4]
+print(my_dict)  # Output: {'b': 2}
+```
+
+### Benefits & Trade-Offs
+
+**Immutability** offers benefits such as **safety** in concurrent environments and facilitating **predictable behavior**.
+
+**Mutability**, on the other hand, often improves **performance** by avoiding copy overhead and redundant computations.
+
+### Impact on Operations
+
+- **Reading and Writing**: Immutable objects typically favor **reading** over **writing**, promoting a more straightforward and predictable code flow.  
+
+- **Memory and Performance**: Mutability can be more efficient in terms of memory usage and performance, especially concerning large datasets, thanks to in-place updates.
+
+Choosing between the two depends on the program's needs, such as the required data integrity and the trade-offs between predictability and performance.
+<br>
+
+## 7. How do you _handle exceptions_ in _Python_?
+
+**Exception handling** is a fundamental aspect of Python, and it safeguards your code against unexpected errors or conditions. Key components of exception handling in Python include:
+
+### Components
+
+- **Try**: The section of code where exceptions might occur is placed within a `try` block.
+
+- **Except**: Any possible exceptions that are `raised` by the `try` block are caught and handled in the `except` block.
+
+- **Finally**: This block ensures a piece of code always executes, regardless of whether an exception occurred. It's commonly used for cleanup operations, such as closing files or database connections.
+
+### Generic Exception Handling vs. Handling Specific Exceptions
+
+It's good practice to **handle** specific exceptions. However, a more **general** approach can also be taken. When doing the latter, ensure the general exception handling is at the end of the chain, as shown here:
+
+```python
+try:
+    risky_operation()
+except IndexError:  # Handle specific exception types first.
+    handle_index_error()
+except Exception as e:  # More general exception must come last.
+    handle_generic_error()
+finally:
+    cleanup()
+```
+
+### Raising Exceptions
+
+Use this mechanism to **trigger and manage** exceptions under specific circumstances. This can be particularly useful when building custom classes or functions where specific conditions should be met.
+
+**Raise** a specific exception:
+
+```python
+def divide(a, b):
+    if b == 0:
+        raise ZeroDivisionError("Divisor cannot be zero")
+    return a / b
+
+try:
+    result = divide(4, 0)
+except ZeroDivisionError as e:
+    print(e)
+```
+
+**Raise a general exception**:
+
+```python
+def some_risky_operation():
+    if condition: 
+        raise Exception("Some generic error occurred")
+```
+
+### Using `with` for Resource Management
+
+The `with` keyword provides a more efficient and clean way to handle resources, like files, ensuring their proper closure when operations are complete or in case of any exceptions. The resource should implement a `context manager`, typically by having `__enter__` and `__exit__` methods.
+
+Here's an example using a file:
+
+```python
+with open("example.txt", "r") as file:
+    data = file.read()
+# File is automatically closed when the block is exited.
+```
+
+### Silence with `pass`, `continue`, or `else`
+
+There are times when not raising an exception is appropriate. You can use `pass` or `continue` in an exception block when you want to essentially ignore an exception and proceed with the rest of your code.
+
+- **`pass`**: Simply does nothing. It acts as a placeholder.
+
+  ```python
+  try:
+      risky_operation()
+  except SomeSpecificException:
+      pass
+  ```
+
+- **`continue`**: This keyword is generally used in loops. It moves to the next iteration without executing the code that follows it within the block.
+
+  ```python
+  for item in my_list:
+      try:
+          perform_something(item)
+      except ExceptionType:
+          continue
+      ```
+
+- **`else` with `try-except` blocks**: The `else` block after a `try-except` block will only be executed if no exceptions are raised within the `try` block
+
+  ```python
+  try:
+      some_function()
+  except SpecificException:
+      handle_specific_exception()
+  else:
+      no_exception_raised()
+  ```
+
+### Callback Function: `ExceptionHook`
+
+Python 3 introduced the better handling of uncaught exceptions by providing an optional function for printing stack traces. The `sys.excepthook` can be set to match any exception in the module as long as it has a `hook` attribute.
+
+Here's an example for this test module:
+
+```python
+# test.py
+import sys
+
+def excepthook(type, value, traceback):
+    print("Unhandled exception:", type, value)
+    # Call the default exception hook
+    sys.__excepthook__(type, value, traceback)
+
+sys.excepthook = excepthook
+
+def test_exception_hook():
+    throw_some_exception()
+```
+
+When run, calling `test_exception_hook` will print "Unhandled exception: ..."
+
+_Note_: `sys.excepthook` will not capture exceptions raised as the result of interactive prompt commands, such as SyntaxError or KeyboardInterrupt.
+<br>
+
+## 8. What is the difference between _list_ and _tuple_?
+
+**Lists** and **Tuples** in Python share many similarities, such as being sequences and supporting indexing.
+
+However, these data structures differ in key ways:
+
+### Key Distinctions
+
+- **Mutability**: Lists are mutable, allowing you to add, remove, or modify elements after creation. Tuples, once created, are immutable.
+
+- **Performance**: Lists are generally slower than tuples, most apparent in tasks like iteration and function calls.
+
+- **Syntax**: Lists are defined with square brackets `[]`, whereas tuples use parentheses `()`.
+
+### When to Use Each
+
+- **Lists** are ideal for collections that may change in size and content. They are the preferred choice for storing data elements.
+
+- **Tuples**, due to their immutability and enhanced performance, are a good choice for representing fixed sets of related data.
+
+### Syntax
+
+#### List: Example
+
+```python
+my_list = ["apple", "banana", "cherry"]
+my_list.append("date")
+my_list[1] = "blackberry"
+```
+
+#### Tuple: Example
+
+```python
+my_tuple = (1, 2, 3, 4)
+# Unpacking a tuple
+a, b, c, d = my_tuple
+```
+<br>
+
+## 9. How do you create a _dictionary_ in _Python_?
+
+**Python dictionaries** are versatile data structures, offering key-based access for rapid lookups. Let's explore various data within dictionaries and techniques to create and manipulate them.
+
+### Key Concepts
+
+- A **dictionary** in Python contains a collection of `key:value` pairs.
+- **Keys** must be unique and are typically immutable, such as strings, numbers, or tuples.
+- **Values** can be of any type, and they can be duplicated.
+
+### Creating a Dictionary
+
+You can use several methods to create a dictionary:
+
+1. **Literal Definition**: Define key-value pairs within curly braces { }.
+
+2. **From Key-Value Pairs**: Use the `dict()` constructor or the `{key: value}` shorthand.
+
+3. **Using the `dict()` Constructor**: This can accept another dictionary, a sequence of key-value pairs, or named arguments.
+
+4. **Comprehensions**: This is a concise way to create dictionaries using a single line of code.
+
+5. **`zip()` Function**: This creates a dictionary by zipping two lists, where the first list corresponds to the keys, and the second to the values.
+
+### Examples
+
+#### Dictionary Literal Definition
+
+Here is a Python code:
+
+```python
+# Dictionary literal definition
+student = {
+    "name": "John Doe",
+    "age": 21,
+    "courses": ["Math", "Physics"]
+}
+```
+
+#### From Key-Value Pairs
+
+Here is the Python code:
+
+```python
+# Using the `dict()` constructor
+student_dict = dict([
+    ("name", "John Doe"),
+    ("age", 21),
+    ("courses", ["Math", "Physics"])
+])
+
+# Using the shorthand syntax
+student_dict_short = {
+    "name": "John Doe",
+    "age": 21,
+    "courses": ["Math", "Physics"]
+}
+```
+
+#### Using `zip()`
+
+Here is a Python code:
+
+```python
+keys = ["a", "b", "c"]
+values = [1, 2, 3]
+
+zipped = zip(keys, values)
+dict_from_zip = dict(zipped) # Result: {"a": 1, "b": 2, "c": 3}
+```
+
+#### Using `dict()` Constructor
+
+Here is a Python code:
+
+```python
+# Sequence of key-value pairs
+student_dict2 = dict(name="Jane Doe", age=22, courses=["Biology", "Chemistry"])
+
+# From another dictionary
+student_dict_combined = dict(student, **student_dict2)
+```
+<br>
+
+## 10. What is the difference between _==_ and _is operator_ in _Python_?
+
+Both the **`==`** and **`is`** operators in Python are used for comparison, but they function differently.
+
+-  The **`==`** operator checks for **value equality**.
+- The **`is`** operator, on the other hand, validates **object identity**,
+
+In Python, every object is unique, identifiable by its memory address. The **`is`** operator uses this memory address to check if two objects are the same, indicating they both point to the exact same instance in memory.
+
+- **`is`**: Compares the memory address or identity of two objects.
+- **`==`**: Compares the content or value of two objects.
+
+While **`is`** is primarily used for **None** checks, it's generally advisable to use **`==`** for most other comparisons.
+
+### Tips for Using Operators
+
+- **`==`**: Use for equality comparisons, like when comparing numeric or string values.
+- **`is`**: Use for comparing membership or when dealing with singletons like **None**.
+<br>
+
+## 11. How does a _Python function_ work?
+
+**Python functions** are the building blocks of code organization, often serving predefined tasks within modules and scripts. They enable reusability, modularity, and encapsulation.
+
+### Key Components
+
+- **Function Signature**: Denoted by the `def` keyword, it includes the function name, parameters, and an optional return type.
+- **Function Body**: This section carries the core logic, often comprising conditional checks, loops, and method invocations.
+- **Return Statement**: The function's output is determined by this statement. When None is specified, the function returns by default.
+- **Local Variables**: These variables are scoped to the function and are only accessible within it.
+
+### Execution Process
+
+When a function is called:
+
+1. **Stack Allocation**: A stack frame, also known as an activation record, is created to manage the function's execution. This frame contains details like the function's parameters, local variables, and **instruction pointer**.
+  
+2. **Parameter Binding**: The arguments passed during the function call are bound to the respective parameters defined in the function header.
+
+3. **Function Execution**: Control is transferred to the function body. The statements in the body are executed in a sequential manner until the function hits a return statement or the end of the function body.
+
+4. **Return**: If a return statement is encountered, the function evaluates the expression following the `return` and hands the value back to the caller. The stack frame of the function is then popped from the call stack.
+
+5. **Post Execution**: If there's no `return` statement, or if the function ends without evaluating any return statement, `None` is implicitly returned.
+
+### Local Variable Scope
+
+- **Function Parameters**: These are a precursor to local variables and are instantiated with the values passed during function invocation.
+- **Local Variables**: Created using an assignment statement inside the function and cease to exist when the function execution ends.
+- **Nested Scopes**: In functions within functions (closures), non-local variables - those defined in the enclosing function - are accessible but not modifiable by the inner function, without using the `nonlocal` keyword.
+
+### Global Visibility
+
+If a variable is not defined within a function, the Python runtime will look for it in the global scope. This behavior enables functions to access and even modify global variables.
+
+### Avoiding Side Effects
+
+Functions offer a level of encapsulation, potentially reducing side effects by ensuring that data and variables are managed within a controlled environment. Such containment can help enhance the robustness and predictability of a codebase. As a best practice, minimizing the reliance on global variables can lead to more maintainable, reusable, and testable code.
+<br>
+
+## 12. What is a _lambda function_, and where would you use it?
+
+A **Lambda function**, or **lambda**, for short, is a small anonymous function defined using the `lambda` keyword in Python.
+
+While you can certainly use named functions when you need a function for something in Python, there are places where a lambda expression is more suitable.
+
+### Distinctive Features
+
+- **Anonymity**: Lambdas are not given a name in the traditional sense, making them suited for one-off uses in your codebase.
+- **Single Expression Body**: Their body is limited to a single expression. This can be an advantage for brevity but a restriction for larger, more complex functions.
+- **Implicit Return**: There's no need for an explicit `return` statement.
+- **Conciseness**: Lambdas streamline the definition of straightforward functions.
+
+### Common Use Cases
+
+- **Map, Filter, and Reduce**: Functions like `map` can take a lambda as a parameter, allowing you to define simple transformations on the fly. For example, doubling each element of a list can be achieved with `list(map(lambda x: x*2, my_list))`.
+- **List Comprehensions**: They are a more Pythonic way of running the same `map` or `filter` operations, often seen as an alternative to lambdas and `map`.
+- **Sorting**: Lambdas can serve as a custom key function, offering flexibility in sort orders.
+- **Callbacks**: Often used in events where a function is needed to be executed when an action occurs (e.g., button click).
+- **Simple Functions**: For functions that are so basic that giving them a name, especially in more procedural code, would be overkill.
+
+### Notable Limitations
+
+- **Lack of Verbose Readability**: Named functions are generally preferred when their intended use is obvious from the name. Lambdas can make code harder to understand if they're complex or not used in a recognizable pattern.
+- **No Formal Documentation**: While the function's purpose should be apparent from its content, a named function makes it easier to provide direct documentation. Lambdas would need a separate verbal explanation, typically in the code or comments.
+<br>
+
+## 13. Explain _*args_ and _**kwargs_ in _Python_.
+
+In Python, `*args` and `**kwargs` are often used to pass a variable number of arguments to a function. 
+
+`*args` collects a variable number of positional arguments into a **tuple**, while `**kwargs` does the same for keyword arguments into a **dictionary**.
+
+Here are the key features, use-cases, and their respective code examples.
+
+### **\*args**: Variable Number of Positional Arguments
+
+- **How it Works**: The name `*args` is a convention. The asterisk (*) tells Python to put any remaining positional arguments it receives into a tuple.
+
+- **Use-Case**: When the number of arguments needed is uncertain.
+
+#### Code Example: "*args"
+
+```python
+def sum_all(*args):
+    result = 0
+    for num in args:
+        result += num
+    return result
+
+print(sum_all(1, 2, 3, 4))  # Output: 10
+```
+
+### **\*\*kwargs**: Variable Number of Keyword Arguments
+
+- **How it Works**: The double asterisk (**) is used to capture keyword arguments and their values into a dictionary.
+
+- **Use-Case**: When a function should accept an arbitrary number of keyword arguments.
+
+#### Code Example: "**kwargs"
+
+```python
+def print_values(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+# Keyword arguments are captured as a dictionary
+print_values(name="John", age=30, city="New York")
+# Output:
+# name: John
+# age: 30
+# city: New York
+```
+<br>
+
+## 14. What are _decorators_ in _Python_?
+
+In Python, a **decorator** is a design pattern and a feature that allows you to modify functions and methods dynamically. This is done primarily to keep the code clean, maintainable, and DRY (Don't Repeat Yourself).
+
+### How Decorators Work
+
+- Decorators wrap a target function, allowing you to execute custom code before and after that function.
+- They are typically **higher-order functions** that take a function as an argument and return a new function.
+- This paradigm of "functions that modify functions" is often referred to as **metaprogramming**.
+
+### Common Use Cases
+
+- **Authorization and Authentication**: Control user access.
+- **Logging**: Record function calls and their parameters.
+- **Caching**: Store previous function results for quick access.
+- **Validation**: Verify input parameters or function output.
+- **Task Scheduling**: Execute a function at a specific time or on an event.
+- **Counting and Profiling**: Keep track of the number of function calls and their execution time.
+
+### Using Decorators in Code
+
+Here is the Python code:
+
+```python
+from functools import wraps
+
+# 1. Basic Decorator
+def my_decorator(func):
+    @wraps(func)  # Ensures the original function's metadata is preserved
+    def wrapper(*args, **kwargs):
+        print('Something is happening before the function is called.')
+        result = func(*args, **kwargs)
+        print('Something is happening after the function is called.')
+        return result
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print('Hello!')
+
+say_hello()
+
+# 2. Decorators with Arguments
+def decorator_with_args(arg1, arg2):
+    def actual_decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            print(f'Arguments passed to decorator: {arg1}, {arg2}')
+            result = func(*args, **kwargs)
+            return result
+        return wrapper
+    return actual_decorator
+
+@decorator_with_args('arg1', 'arg2')
+def my_function():
+    print('I am decorated!')
+
+my_function()
+```
+
+### Decorator Syntax in Python
+
+The `@decorator` syntax is a convenient shortcut for:
+
+```python
+def say_hello():
+    print('Hello!')
+say_hello = my_decorator(say_hello)
+```
+
+### Role of **functools.wraps**
+
+When defining decorators, particularly those that return functions, it is good practice to use `@wraps(func)` from the `functools` module. This ensures that the original function's metadata, such as its name and docstring, is preserved.
+<br>
+
+## 15. How can you create a _module_ in _Python_?
+
+You can **create** a Python module through one of two methods:
+
+- **Define**: Begin with saving a Python file with `.py` extension. This file will automatically function as a module. 
+
+- **Create a Blank Module**: Start an empty file with no extension. Name the file using the accepted module syntax, e.g., `__init__ `, for it to act as a module. 
+
+Next, use **import** to access the module and its functionality.
+
+### Code Example: Creating a `math_operations` Module
+
+#### Module Definition
+
+Save the below `math_operations.py` file :
+
+```python
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    return x / y
+```
+
+#### Module Usage
+
+You can use `math_operations` module by using import as shown below:
+
+```python
+import math_operations
+
+result = math_operations.add(4, 5)
+print(result)
+
+result = math_operations.divide(10, 5)
+print(result)
+```
+
+Even though it is not required in the later **versions of Python**, you can also use statement `from math_operations import *` to import all the members such as functions and classes at once:
+
+```python
+from math_operations import *  # Not recommended generally due to name collisions and readability concerns
+
+result = add(3, 2)
+print(result)
+```
+
+### Best Practice
+Before submitting the code, let's make sure to follow the **Best Practice**:
+
+- **Avoid Global Variables**: Use a `main()` function.
+- **Guard Against Code Execution on Import**: To avoid unintended side effects, use:
+
+```python
+if __name__ == "__main__":
+    main()
+```
+
+This makes sure that the block of code following `if __name__ == "__main__":` is only executed when the module is run directly and not when imported as a module in another program.
+<br>
+
+
+
+#### Explore all 100 answers here 👉 [Devinterview.io - Python](https://devinterview.io/questions/web-and-mobile-development/python-interview-questions)
+
+<br>
+
+<a href="https://devinterview.io/questions/web-and-mobile-development/">
+<img src="https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/github-blog-img%2Fweb-and-mobile-development-github-img.jpg?alt=media&token=1b5eeecc-c9fb-49f5-9e03-50cf2e309555" alt="web-and-mobile-development" width="100%">
+</a>
+</p>
+
