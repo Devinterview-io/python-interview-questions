@@ -1,7 +1,7 @@
 # 100 Core Python Interview Questions
 
 this question is very helpfull
-
+tjis is mayank jain 
 <div>
 <p align="center">
 <a href="https://devinterview.io/questions/web-and-mobile-development/">
