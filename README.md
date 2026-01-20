@@ -1,4 +1,4 @@
-# 100 Core Python Interview Questions in 2026
+# Top 100 Python Interview Questions
 
 <div>
 <p align="center">
@@ -13,49 +13,83 @@
 
 ## 1. What are the _key features_ of _Python_?
 
-**Python** is a versatile and popular programming language known for its simplicity, **elegant syntax**, and a vast ecosystem of libraries. Let's look at some of the key features that make Python stand out.
+Python is a high-level, interpreted, general-purpose programming language known for its simplicity and readability. Its design philosophy emphasizes code readability with its use of significant indentation. Python's versatility and vast ecosystem make it a popular choice for various applications, from web development to data science.
 
-### Key Features of Python
+Here are the key features that define Python:
 
-#### 1. Interpreted and Interactive
+### 1. Simplicity and Readability
+Python's syntax is designed to be clear and intuitive, resembling natural language more than typical programming languages. This emphasis on **readability** significantly reduces the cost of program maintenance and makes it easier for beginners to learn. The use of **whitespace indentation** enforces a consistent code style across projects.
 
-Python uses an interpreter, allowing developers to run code **line-by-line**, making it ideal for rapid prototyping and debugging.
+#### Example:
+```python
+# Simple 'Hello, World!' program
+print("Hello, Python!")
 
-#### 2. Easy to Learn and Read
+# Easy to read loop
+for i in range(3):
+    print(f"Iteration {i+1}")
+```
 
-Python's **clean, readable syntax**, often resembling plain English, reduces the cognitive load for beginners and experienced developers alike.
+### 2. Interpreted Language
+Unlike compiled languages (like C++ or Java), Python code is **executed line by line** by an interpreter rather than being compiled into machine code before execution. This offers several advantages:
+*   **Faster Development Cycle**: No separate compilation step, making debugging and testing quicker.
+*   **Portability**: The same code can run on different platforms as long as an interpreter is available.
 
-#### 3. Cross-Platform Compatibility
+### 3. Dynamically Typed
+Python is a **dynamically typed** language, meaning that the type of a variable is determined at runtime, not during declaration. You don't need to explicitly declare the data type of a variable.
 
-Python is versatile, running on various platforms, such as Windows, Linux, and macOS, without requiring platform-specific modifications.
+#### Example:
+```python
+x = 10         # x is an integer
+print(type(x))
 
-#### 4. Modular and Scalable
+x = "Hello"    # x is now a string
+print(type(x))
+```
 
-Developers can organize their code into modular packages and reusabale functions.
+### 4. Platform Independent
+Python is a **cross-platform language**, often described as "write once, run anywhere." Python programs can run on various operating systems like Windows, macOS, Linux, and Unix, provided a Python interpreter is installed on that system.
 
-#### 5. Rich Library Ecosystem
+### 5. Extensive Standard Library and Rich Ecosystem
+Python boasts a "batteries-included" philosophy, offering a **vast standard library** that provides modules and packages for a wide range of functionalities, including:
+*   File I/O
+*   Networking
+*   Regular expressions
+*   Database connectivity
+*   Mathematics
 
-The Python Package Index (PyPI) hosts over 260,000 libraries, providing solutions for tasks ranging from web development to data analytics.
+Beyond the standard library, Python has an incredibly **rich third-party ecosystem** accessible via `pip` (Python's package installer), with frameworks and libraries for virtually any task:
+*   **Web Development**: Django, Flask, FastAPI
+*   **Data Science & Machine Learning**: NumPy, Pandas, Scikit-learn, TensorFlow, PyTorch
+*   **GUI Development**: PyQt, Kivy, Tkinter
 
-#### 6. Exceptionally Versatile
+### 6. Multi-paradigm Programming Support
+Python supports multiple programming paradigms, allowing developers to choose the style best suited for their project:
+*   **Object-Oriented Programming (OOP)**: Supports classes, objects, inheritance, polymorphism, and encapsulation.
+*   **Procedural Programming**: Allows organizing code into functions and modules.
+*   **Functional Programming**: Supports concepts like higher-order functions, lambda functions, and list comprehensions.
 
-From web applications to scientific computing, Python is equally proficient in diverse domains.
+#### Example (OOP):
+```python
+class Dog:
+    def __init__(self, name):
+        self.name = name
+    def bark(self):
+        print(f"{self.name} says Woof!")
 
-#### 7. Memory Management
+my_dog = Dog("Buddy")
+my_dog.bark()
+```
 
-Python seamlessly allocates and manages memory, shielding developers from low-level tasks, such as memory deallocation.
+### 7. High-Level Language
+Python is a **high-level language**, meaning it abstracts away many low-level details of computer architecture. This allows programmers to focus on problem-solving rather than managing memory or processor registers. Key aspects include:
+*   **Automatic Memory Management**: Python has an automatic garbage collector that handles memory allocation and deallocation, freeing developers from manual memory management.
+*   **Rich Data Structures**: Built-in data structures like lists, dictionaries, and sets simplify complex data handling.
 
-#### 8. Dynamically Typed
+### 8. Open Source with Strong Community Support
+Python is an **open-source language**, freely available for use and distribution. This fosters a vibrant and **active global community** of developers who contribute to its development, create libraries, write documentation, and provide extensive support through forums, conferences, and online resources.
 
-Python infers the data type of a variable during execution, easing the declartion and manipulation of variables.
-
-#### 9. Object-Oriented
-
-Python supports object-oriented paradigms, where everything is an **object**, offering attributes and methods to manipulate data.
-
-#### 10. Extensible
-
-With its C-language API, developers can integrate performance-critical tasks and existing C modules with Python.
+These key features collectively contribute to Python's popularity and make it a powerful, versatile, and beginner-friendly language for a wide array of applications.
 <br>
 
 ## 2. How is _Python_ executed?
