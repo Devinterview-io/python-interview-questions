@@ -15,7 +15,7 @@
 
 The existing content is remarkably accurate and comprehensive, reflecting current industry understanding and best practices for Python as of 2026. It effectively addresses key architectural features, potential trade-offs, and common misconceptions (like the GIL), providing a nuanced, senior-level perspective.
 
-No factual errors or outdated advice were identified. The explanations are precise, cover important details (e.g., reference counting and generational GC, type hints with static analysis, GIL's impact on I/O vs. CPU-bound tasks), and align with modern Python development.
+No factual errors or outdated advice were identified. The explanations are precise, cover important details (e.g., reference counting and generational GC, type hints with static analysis, GIL's impact on I/O vs. CPU-bound tasks), and align with modern Python development. The discussion on the Global Interpreter Lock (GIL) accurately describes its current state in CPython and the common strategies to work around its limitations for CPU-bound tasks, which remains relevant even with ongoing efforts like PEP 703 to make the GIL optional in future CPython versions (these efforts are still in progress and will take time to fully integrate into the ecosystem).
 
 Therefore, the content is technically sound and requires no significant updates or rewrites.
 
