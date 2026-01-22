@@ -1,4 +1,4 @@
-# 100 Core Python Interview Questions in 2026
+# Top 100 Python Interview Questions
 
 <div>
 <p align="center">
@@ -19,11 +19,11 @@
 
 #### 1. Interpreted and Interactive
 
-Python uses an interpreter, allowing developers to run code **line-by-line**, making it ideal for rapid prototyping and debugging.
+Python uses an interpreter, allowing developers to run code line-by-line, making it ideal for rapid prototyping and debugging.
 
 #### 2. Easy to Learn and Read
 
-Python's **clean, readable syntax**, often resembling plain English, reduces the cognitive load for beginners and experienced developers alike.
+Python's clean, readable syntax, often resembling plain English, reduces the cognitive load for beginners and experienced developers alike.
 
 #### 3. Cross-Platform Compatibility
 
@@ -31,11 +31,11 @@ Python is versatile, running on various platforms, such as Windows, Linux, and m
 
 #### 4. Modular and Scalable
 
-Developers can organize their code into modular packages and reusabale functions.
+Developers can organize their code into modular modules, packages, and reusable functions.
 
 #### 5. Rich Library Ecosystem
 
-The Python Package Index (PyPI) hosts over 260,000 libraries, providing solutions for tasks ranging from web development to data analytics.
+The Python Package Index (PyPI) hosts hundreds of thousands of libraries (currently over 500,000), providing solutions for tasks ranging from web development to data analytics.
 
 #### 6. Exceptionally Versatile
 
@@ -47,7 +47,7 @@ Python seamlessly allocates and manages memory, shielding developers from low-le
 
 #### 8. Dynamically Typed
 
-Python infers the data type of a variable during execution, easing the declartion and manipulation of variables.
+Python infers the data type of a variable during execution, easing the declaration and manipulation of variables.
 
 #### 9. Object-Oriented
 
