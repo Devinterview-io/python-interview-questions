@@ -1,4 +1,4 @@
-# Top 100 Python Interview Questions
+# 100 Core Python Interview Questions in 2026
 
 <div>
 <p align="center">
