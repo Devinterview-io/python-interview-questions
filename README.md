@@ -1,4 +1,4 @@
-# 100 Core Python Interview Questions in 2026
+# Top 100 Python Interview Questions
 
 <div>
 <p align="center">
@@ -13,505 +13,529 @@
 
 ## 1. What are the _key features_ of _Python_?
 
-**Python** is a versatile and popular high-level programming language known for its simplicity, **elegant syntax**, and a vast ecosystem of libraries. Let's look at the key features that make Python stand out.
+**Python** is a versatile and popular programming language known for its simplicity, **elegant syntax**, and a vast ecosystem of libraries. Let's look at some of the key features that make Python stand out.
 
 ### Key Features of Python
 
 #### 1. Interpreted and Interactive
-Python executes code **line-by-line** via an interpreter, making it ideal for rapid prototyping and debugging. Modern versions also incorporate Just-In-Time (JIT) compilation for improved performance.
+
+Python uses an interpreter, allowing developers to run code **line-by-line**, making it ideal for rapid prototyping and debugging.
 
 #### 2. Easy to Learn and Read
-Python's **clean, readable syntax**, often resembling plain English, reduces the cognitive load for beginners and experienced developers alike by using indentation to define code blocks.
+
+Python's **clean, readable syntax**, often resembling plain English, reduces the cognitive load for beginners and experienced developers alike.
 
 #### 3. Cross-Platform Compatibility
-Python is portable, running on various platforms such as Windows, Linux, and macOS without requiring platform-specific modifications.
+
+Python is versatile, running on various platforms, such as Windows, Linux, and macOS, without requiring platform-specific modifications.
 
 #### 4. Modular and Scalable
-Developers can organize their code into modular packages and **reusable** functions, promoting better structure and maintainability for large applications.
+
+Developers can organize their code into modular packages and reusabale functions.
 
 #### 5. Rich Library Ecosystem
-The Python Package Index (PyPI) hosts **hundreds of thousands** of libraries, providing robust solutions for tasks ranging from web development to artificial intelligence.
+
+The Python Package Index (PyPI) hosts over 260,000 libraries, providing solutions for tasks ranging from web development to data analytics.
 
 #### 6. Exceptionally Versatile
-From web applications to scientific computing and automation, Python is a general-purpose language equally proficient in diverse domains.
+
+From web applications to scientific computing, Python is equally proficient in diverse domains.
 
 #### 7. Memory Management
-Python automatically allocates and manages memory using a private heap and **garbage collection**, shielding developers from low-level tasks like manual deallocation.
+
+Python seamlessly allocates and manages memory, shielding developers from low-level tasks, such as memory deallocation.
 
 #### 8. Dynamically Typed
-Python infers the data type of a variable during execution, easing the **declaration** and manipulation of variables, while supporting optional static type hinting.
+
+Python infers the data type of a variable during execution, easing the declartion and manipulation of variables.
 
 #### 9. Object-Oriented
-Python supports object-oriented paradigms where everything is an **object**, offering attributes and methods to encapsulate and manipulate data efficiently.
+
+Python supports object-oriented paradigms, where everything is an **object**, offering attributes and methods to manipulate data.
 
 #### 10. Extensible
-With its C-language API, developers can integrate performance-critical tasks and existing C/C++ modules directly with Python code.
+
+With its C-language API, developers can integrate performance-critical tasks and existing C modules with Python.
 <br>
 
 ## 2. How is _Python_ executed?
 
-**Python** source code undergoes a multi-stage process involving compilation, interpretation, and dynamic optimization before execution. Below are the technical details of this workflow as of 2026.
+**Python** source code is processed through various steps before it can be executed. Let's explore the key stages in this process.
 
 ### Compilation & Interpretation
 
-Python (specifically the standard **CPython** implementation) utilizes a hybrid execution model:
+Python code goes through both **compilation** and **interpretation**. 
 
-- **Bytecode Compilation**: The source code is first compiled into **Bytecode**, a low-level, platform-independent intermediate representation. This bytecode is a sequence of instructions for the Python Virtual Machine (PVM), often cached in `.pyc` files.
-- **The PVM Loop**: The PVM is a stack-based interpreter that iterates through bytecode instructions and executes them sequentially.
+- **Bytecode Compilation**: High-level Python code is transformed into low-level bytecode by the Python interpreter with the help of a compiler. Bytecode is a set of instructions that Python's virtual machine (PVM) can understand and execute.
+  
+- **On-the-fly Interpretation**: The PVM reads and executes bytecode instructions in a step-by-step manner.
+  
+This dual approach known as "compile and then interpret" is what sets Python (and certain other languages) apart. 
 
-### The Compilation Pipeline
+### Bytecode versus Machine Code Execution
 
-The transformation from source code to executable bytecode involves strict steps:
+While some programming languages compile directly to machine code, Python compiles to bytecode. This bytecode is then executed by the Python virtual machine. This extra step of bytecode execution **can make Python slower** in certain use-cases when compared to languages that compile directly to machine code.
 
-1. **Lexical Analysis**: The tokenizer breaks the source text into individual **tokens** (identifiers, keywords, operators).
-2. **Parsing**: Tokens are structured into an **Abstract Syntax Tree (AST)**, which validates the grammar and syntax.
-3. **Bytecode Generation**: The compiler traverses the AST, generates a Control Flow Graph (CFG), and emits the final bytecode instructions.
+The advantage, however, is that bytecode is platform-independent. A Python program can be run on any machine with a compatible PVM, ensuring cross-platform support.
 
-### Adaptive Execution and JIT
+### Source Code to Bytecode: Compilation Steps
 
-Modern Python (post-3.11) employs **Tiered Execution** to optimize performance dynamically:
+1. **Lexical Analysis**: The source code is broken down into tokens, identifying characters and symbols for Python to understand.
+2. **Syntax Parsing**: Tokens are structured into a parse tree to establish the code's syntax and grammar.
+3. **Semantic Analysis**: Code is analyzed for its meaning and context, ensuring it's logically sound.
+4. **Bytecode Generation**: Based on the previous steps, bytecode instructions are created.
 
-- **Tier 1: Adaptive Interpretation**: The PVM monitors code as it runs. If specific instructions are executed frequently with consistent types, the interpreter "quickens" them by replacing generic bytecode with **specialized instructions** optimized for those specific types.
-- **Tier 2: Just-In-Time (JIT) Compilation**: For highly active code paths ("hot spots"), the JIT compiler (utilizing a copy-and-patch architecture) translates specialized bytecode into native machine code. This bypasses the interpreter loop entirely for those segments, significantly reducing overhead.
+### Just-In-Time (JIT) Compilation
 
-### Bytecode versus Machine Code
+While Python typically uses a combination of interpretation and compilation, **JIT** boosts efficiency by selectively compiling parts of the program that are frequently used or could benefit from optimization.
 
-Unlike languages like C++ that compile directly to hardware-specific **Machine Code**, Python compiles to **Bytecode**.
-- **Portability**: Bytecode allows Python programs to run on any device with a PVM, regardless of the underlying hardware.
-- **Performance**: While the extra layer of interpretation historically caused latency, the modern **Adaptive Interpreter** and **JIT** bridge the gap by compiling hot code to machine code at runtime.
+JIT compiles sections of the program to machine code on-the-fly. This direct machine code generation for frequently executed parts can significantly speed up those segments, blurring the line between traditional interpreters and compilers.
 
-### Code Example: Disassembly and Optimization
-
-We can inspect the bytecode using the `dis` module. The Python compiler performs **Peephole Optimization** during the compilation phase, such as pre-calculating constant expressions.
+### Code Example: Disassembly of Bytecode
 
 ```python
 import dis
 
 def example_func():
-    # The compiler evaluates 15 * 20 at compile-time (Constant Folding)
     return 15 * 20
 
 # Disassemble to view bytecode instructions
 dis.dis(example_func)
 ```
 
-**Output**:
-The output reveals that the multiplication does not happen at runtime; the result (`300`) is loaded directly.
+Disassembling code using Python's `dis` module can reveal the underlying bytecode instructions that the PVM executes. Here's the disassembled output for the above code:
 
 ```plaintext
-  4           0 LOAD_CONST               1 (300)
+  4           0 LOAD_CONST               2 (300)
               2 RETURN_VALUE
 ```
 <br>
 
 ## 3. What is _PEP 8_ and why is it important?
 
-### What is PEP 8?
+**PEP 8** is a style guide for Python code that promotes code consistency, readability, and maintainability. It's named after Python Enhancement Proposal (PEP), the mechanism used to propose and standardize changes to the Python language.
 
-**PEP 8** (Python Enhancement Proposal 8) is the standard style guide for writing Python code. Authored by Guido van Rossum, Barry Warsaw, and Nick Coghlan, it provides guidelines to ensure that Python code is formatted consistently across the entire ecosystem.
+PEP 8 is not a set-in-stone rule book, but it provides general guidelines that help developers across the Python community write code that's visually consistent and thus easier to understand.
 
-### Why It Is Important
+### Key Design Principles
 
--   **Readability**: Code is read much more often than it is written. PEP 8 ensures that code written by one developer appears familiar to another, reducing the cognitive load required to understand the logic.
--   **Consistency**: Adhering to a uniform style makes codebases easier to maintain and review.
--   **Tooling Standard**: Modern linters (e.g., `ruff`, `flake8`) and auto-formatters (e.g., `black`) rely on PEP 8 definitions to automate code quality checks.
+PEP 8 emphasizes:
+
+- **Readability**: Code should be easy to read and understand, even by someone who didn't write it.
+- **Consistency**: Codebase should adhere to a predictable style so there's little cognitive load in reading or making changes.
+- **One Way to Do It**: Instead of offering multiple ways to write the same construct, PEP 8 advocates for a single, idiomatic style.
 
 ### Base Rules
 
--   **Indentation**: Use **4 spaces** per indentation level. Do not use tabs.
--   **Line Length**: The official guideline is **79 characters** to facilitate side-by-side editing, though many modern teams adjust this limit (e.g., to 88 or 100 characters).
--   **Blank Lines**: Surround top-level function and class definitions with two blank lines. Method definitions inside a class are separated by a single blank line.
+- **Indentation**: Use 4 spaces for each level of logical indentation.
+- **Line Length**: Keep lines of code limited to 79 characters. This number is a guideline; longer lines are acceptable in certain contexts.
+- **Blank Lines**: Use them to separate logical sections but not excessively.
 
 ### Naming Styles
 
--   **Class Names**: Use `CapWords` (also known as PascalCase).
--   **Functions & Variables**: Use `snake_case` (lowercase with underscores).
--   **Constants**: Use `UPPER_CASE_WITH_UNDERSCORES`.
--   **Non-public Attributes**: Use a leading underscore (e.g., `_internal_var`) to indicate internal use.
+- **Class Names**: Prefer `CamelCase`.
+- **Function and Variable Names**: Use `lowercase_with_underscores`.
+- **Module Names**: Keep them short and in `lowercase`.
 
-### Documentation & Whitespace
+### Documentation
 
--   **Docstrings**: Use triple double quotes (`"""`) for documentation strings.
--   **Whitespace**: Avoid extraneous whitespace immediately inside parentheses, brackets, or braces. Always surround binary operators (like assignment `=` or addition `+`) with a single space.
--   **Imports**: Place imports at the top of the file, on separate lines, grouped in order: standard library, third-party, and local application.
+- Use triple quotes for documentation strings.
+- Comments should be on their own line and explain the reason for the following code block.
 
-### Example: Modern Compliant Code
+### Whitespace Usage
 
-The following example demonstrates PEP 8 spacing, naming, type hinting, and standard library usage (using `pathlib` instead of the older `os` module):
+- **Operators**: Surround them with a single space.
+- **Commas**: Follow them with a space.
+
+### Example: Directory Walker
+
+Here is the `PEP8` compliant code:
 
 ```python
-from pathlib import Path
+import os
 
-def list_files(base_path: str) -> None:
-    """
-    Recursively print all file paths in the given directory.
-    """
-    directory = Path(base_path)
-
-    # rglob is the modern, idiomatic way to walk directories
-    for file_path in directory.rglob('*'):
-        if file_path.is_file():
+def walk_directory(path):
+    for dirpath, dirnames, filenames in os.walk(path):
+        for filename in filenames:
+            file_path = os.path.join(dirpath, filename)
             print(file_path)
 
-if __name__ == "__main__":
-    list_files('/var/log')
+walk_directory('/path/to/directory')
 ```
 <br>
 
 ## 4. How is memory allocation and garbage collection handled in _Python_?
 
-In Python, memory management is automated via a **private heap** and a hybrid **garbage collection** mechanism.
+In Python, **both memory allocation** and **garbage collection** are handled discretely.
 
 ### Memory Allocation
 
-*   **Private Heap**: The Python Memory Manager ensures all objects and data structures are stored in a private heap, inaccessible to the programmer directly.
-*   **Pymalloc Strategy**: CPython utilizes a specialized allocator (optimized for objects smaller than 512 bytes) to reduce fragmentation and system calls. It organizes memory hierarchically:
-    1.  **Arenas**: Large, 256KB chunks mapped from the OS.
-    2.  **Pools**: 4KB subdivisions within arenas.
-    3.  **Blocks**: Fixed-size units within pools used to store data.
-*   **Raw Allocators**: For larger objects, Python bypasses the specialized allocator and interacts directly with the system's standard C allocator (e.g., `malloc`).
+- The "heap" is the pool of memory for storing objects. The Python memory manager allocates and deallocates this space as needed.
+
+- In latest Python versions, the `obmalloc` system is responsible for small object allocations. This system preallocates small and medium-sized memory blocks to manage frequently created small objects.
+
+- The `allocator` abstracts the system-level memory management, employing memory management libraries like `Glibc` to interact with the operating system.
+
+- Larger blocks of memory are primarily obtained directly from the operating system.
+
+- **Stack** and **Heap** separation is joined by "Pool Allocator" for internal use.
 
 ### Garbage Collection
 
-Python primarily uses **Reference Counting**, supplemented by a **Generational Garbage Collector**.
+Python employs a method called **reference counting** along with a **cycle-detecting garbage collector**.
 
 #### Reference Counting
 
-*   Every internal object carries a reference count (`ob_refcnt`). When this count drops to $0$, the memory is **immediately deallocated**.
-*   This mechanism is highly efficient for the majority of objects, releasing resources without waiting for a GC cycle.
-*   **Immortal Objects**: In modern Python (PEP 683), core objects (like `None`, `True`, and small integers) are marked as "Immortal." Their reference counts are not tracked, which improves performance and thread safety.
+- Every object has a reference count. When an object's count drops to zero, it is immediately deallocated.
 
-```python
-import sys
-x = []
-# Output is typically 2: one for variable 'x', one for the getrefcount argument
-print(sys.getrefcount(x)) 
-```
+- This mechanism is swift, often releasing objects instantly without the need for garbage collection.
+
+- However, it can be insufficient in handling **circular references**.
 
 #### Cycle-Detecting Garbage Collector
 
-*   Reference counting cannot resolve **circular references** (e.g., List A contains List B, and List B contains List A).
-*   A separate Cycle-Detecting GC runs periodically to identify these unreachable isolated subgraphs.
-*   **Generational Hypothesis**: The GC classifies objects into three generations (0, 1, 2). New objects start in Generation 0. If they survive a collection sweep, they are promoted to older generations. Older generations are scanned less frequently, minimizing runtime overhead.
+- Python has a separate garbage collector that periodically identifies and deals with circular references.
+
+- This is, however, a more time-consuming process and is invoked less frequently than reference counting.
 
 ### Memory Management in Python vs. C
 
-*   **Abstraction**: Python developers are freed from manual `malloc`/`free` calls, eliminating classes of bugs like memory leaks and dangling pointers common in C.
-*   **Overhead**: Python objects are C structures containing metadata (headers, reference counts), resulting in higher memory usage than equivalent raw C data types.
-*   **Performance**: While Python's allocator is optimized, the overhead of maintaining reference counts and running the cyclic GC makes it less memory-efficient and generally slower than C's manual management.
+Python handles memory management quite differently from languages like C or C++:
+
+- In Python, the developer isn't directly responsible for memory allocations or deallocations, reducing the likelihood of memory-related bugs.
+
+- The memory manager in Python is what's known as a **"general-purpose memory manager"** that can be slower than the dedicated memory managers of C or C++ in certain contexts.
+
+- Python, especially due to the existence of a garbage collector, might have memory overhead compared to C or C++ where manual memory management often results in minimal overhead is one of the factors that might contribute to Python's sometimes slower performance.
+
+- The level of memory efficiency isn't as high as that of C or C++. This is because Python is designed to be convenient and easy to use, often at the expense of some performance optimization.
 <br>
 
 ## 5. What are the _built-in data types_ in _Python_?
 
-Python provides a rich set of **built-in data types** generally categorized by their mutability—whether their value can be changed after creation.
+Python offers numerous **built-in data types** that provide varying functionalities and utilities.
 
 ### Immutable Data Types
-These objects cannot be modified once created.
 
 #### 1. int
-Represents arbitrary-precision integers.
-```python
-x = 42
-```
+   Represents a whole number, such as 42 or -10.
 
 #### 2. float
-Represents double-precision floating-point numbers.
-```python
-pi = 3.14159
-```
+   Represents a decimal number, like 3.14 or -0.01.
 
 #### 3. complex
-Comprises a real and an imaginary part, denoted with a `j` suffix.
-```python
-c = 3 + 4j
-```
+   Comprises a real and an imaginary part, like 3 + 4j.
 
 #### 4. bool
-A subtype of `int` representing boolean truth values: `True` (1) and `False` (0).
+   Represents a boolean value, True or False.
 
 #### 5. str
-An immutable sequence of Unicode code points (text).
-```python
-s = "Python 2026"
-```
+   A sequence of unicode characters enclosed within quotes.
 
 #### 6. tuple
-An ordered, immutable collection of items, often heterogeneous.
-```python
-t = (1, "apple", 3.14)
-```
+   An ordered collection of items, often heterogeneous, enclosed within parentheses.
 
 #### 7. frozenset
-An immutable version of a `set`. It is hashable and can be used as a dictionary key.
-```python
-fs = frozenset([1, 2, 3])
-```
+   A set of unique, immutable objects, similar to sets, enclosed within curly braces.
 
 #### 8. bytes
-An immutable sequence of integers in the range $0 \le x < 256$, used for binary data.
-```python
-b = b'binary data'
-```
+   Represents a group of 8-bit bytes, often used with binary data, enclosed within brackets.
 
-#### 9. range
-Represents an immutable sequence of numbers, typically used in loops.
-```python
-r = range(0, 10, 2)
-```
+#### 9. bytearray
+   Resembles the 'bytes' type but allows mutable changes.
 
 #### 10. NoneType
-Represents the null value or the absence of a value, accessed via the `None` keyword.
+   Indicates the absence of a value.
 
 ### Mutable Data Types
-These objects support in-place modifications.
 
 #### 1. list
-A dynamic, ordered sequence that can contain mixed data types.
-```python
-nums = [1, 2, 3]
-nums.append(4)
-```
+   A versatile ordered collection that can contain different data types and offers dynamic sizing, enclosed within square brackets.
 
 #### 2. set
-An unordered collection of unique, hashable objects.
-```python
-unique_ids = {101, 102, 103}
-```
+   Represents a unique set of objects and is characterized by curly braces.
 
 #### 3. dict
-A mapping of hashable **keys** to arbitrary **values**.
-```python
-user = {'name': 'Alice', 'id': 42}
-```
+   A versatile key-value paired collection enclosed within braces.
 
-#### 4. bytearray
-A mutable sequence of integers in the range $0 \le x < 256$. It allows in-place modification of binary data.
-```python
-ba = bytearray(b'hello')
-ba[0] = 87  # Changes 'h' to 'W'
-```
+#### 4. memoryview
+   Points to the memory used by another object, aiding efficient viewing and manipulation of data.
 
-#### 5. memoryview
-Allows Python code to access the internal data of an object (like `bytes` or `bytearray`) without copying, supporting the buffer protocol.
-```python
-mv = memoryview(b'abc')
-```
+#### 5. array
+   Offers storage for a specified type of data, similar to lists but with dedicated built-in functionalities.
+
+#### 6. deque
+   A double-ended queue distinguished by optimized insertion and removal operations from both its ends.
+
+#### 7. object
+   The base object from which all classes inherit.
+
+#### 8. types.SimpleNamespace
+   Grants the capability to assign attributes to it.
+
+#### 9. types.ModuleType
+   Represents a module body containing attributes.
+
+#### 10. types.FunctionType
+   Defines a particular kind of function.
 <br>
 
 ## 6. Explain the difference between a _mutable_ and _immutable_ object.
 
+Let's look at the difference between **mutable** and **immutable** objects.
+
 ### Key Distinctions
 
-In Python, every variable holds a reference to an object instance. The distinction lies in whether that object's value can change after it is created.
-
-- **Mutable Objects**: The internal state can be modified in place. The object's memory address (identity) remains the same across modifications.
-- **Immutable Objects**: The internal state cannot be changed. Any operation that appears to modify the value actually creates a **new object** with a new memory address.
+- **Mutable Objects**: Can be modified after creation.
+- **Immutable Objects**: Cannot be modified after creation.
 
 ### Common Examples
 
-- **Mutable**: `list`, `dict`, `set`, `bytearray`
-- **Immutable**: `int`, `float`, `complex`, `str`, `tuple`, `frozenset`, `bytes`
+- **Mutable**: Lists, Sets, Dictionaries
+- **Immutable**: Tuples, Strings, Numbers
 
 ### Code Example: Immutability in Python
 
-The following code demonstrates that modifying a **mutable** list keeps the same ID, whereas modifying an **immutable** integer changes the ID (rebinding). It also shows the `TypeError` raised when attempting structural changes on immutable types.
+Here is the Python code:
 
 ```python
-# --- Mutable Object (List) ---
-my_list = [1, 2]
-print(f"Original List ID: {id(my_list)}")
+# Immutable objects (int, str, tuple)
+num = 42
+text = "Hello, World!"
+my_tuple = (1, 2, 3)
 
-my_list.append(3)  # Modifies in-place
-print(f"Modified List ID: {id(my_list)}")  # ID remains the same
-
-# --- Immutable Object (Integer & Tuple) ---
-num = 10
-print(f"Original Int ID:  {id(num)}")
-
-num += 1  # Rebinds variable to a NEW object
-print(f"New Int ID:       {id(num)}")      # ID changes
-
-# Structural modification raises TypeError
-my_tuple = (1, 2)
+# Trying to modify will raise an error
 try:
-    my_tuple[0] = 100 
+    num += 10
+    text[0] = 'M'  # This will raise a TypeError
+    my_tuple[0] = 100  # This will also raise a TypeError
 except TypeError as e:
-    print(f"Error: {e}") # Tuples do not support item assignment
+    print(f"Error: {e}")
+
+# Mutable objects (list, set, dict)
+my_list = [1, 2, 3]
+my_dict = {'a': 1, 'b': 2}
+
+# Can be modified without issues
+my_list.append(4)
+del my_dict['a']
+
+# Checking the changes
+print(my_list)  # Output: [1, 2, 3, 4]
+print(my_dict)  # Output: {'b': 2}
 ```
 
 ### Benefits & Trade-Offs
 
-**Immutability** ensures **hashability**, meaning immutable objects can serve as dictionary keys or set elements. It also provides inherent **thread safety**, as the state cannot change unexpectedly during concurrent execution.
+**Immutability** offers benefits such as **safety** in concurrent environments and facilitating **predictable behavior**.
 
-**Mutability** provides better **performance** for large collections. Modifying a large list in place is $O(1)$ or amortized $O(1)$, whereas modifying an immutable sequence (like a string) often requires copying the entire structure, resulting in $O(N)$ complexity.
+**Mutability**, on the other hand, often improves **performance** by avoiding copy overhead and redundant computations.
 
 ### Impact on Operations
 
-- **Parameter Passing**: Python passes references by assignment. If a function modifies a **mutable** argument (e.g., appending to a list), the change is reflected globally. If it modifies an **immutable** argument, it only changes the local reference, leaving the external variable untouched.
+- **Reading and Writing**: Immutable objects typically favor **reading** over **writing**, promoting a more straightforward and predictable code flow.  
 
-- **Memory Efficiency**: **Mutable** objects allow in-place updates, reducing memory churn. However, Python caches small **immutable** objects (like small integers and interned strings) to optimize memory usage.
+- **Memory and Performance**: Mutability can be more efficient in terms of memory usage and performance, especially concerning large datasets, thanks to in-place updates.
+
+Choosing between the two depends on the program's needs, such as the required data integrity and the trade-offs between predictability and performance.
 <br>
 
 ## 7. How do you _handle exceptions_ in _Python_?
 
-**Exception handling** is a fundamental mechanism in Python that safeguards code against runtime errors, ensuring robust execution flows. The core syntax relies on the `try`, `except`, `else`, and `finally` blocks.
+**Exception handling** is a fundamental aspect of Python, and it safeguards your code against unexpected errors or conditions. Key components of exception handling in Python include:
 
-### Core Components
+### Components
 
-- **`try`**: The block containing code that might raise an exception.
-- **`except`**: catche and handles exceptions raised within the `try` block.
-- **`else`**: Executes only if the `try` block completes **without** raising an exception.
-- **`finally`**: Executes unconditionally after the `try` (and `except`/`else`) blocks. It is primarily used for cleanup operations like closing connections.
+- **Try**: The section of code where exceptions might occur is placed within a `try` block.
 
-### Handling Strategies: Specific, Generic, and Groups
+- **Except**: Any possible exceptions that are `raised` by the `try` block are caught and handled in the `except` block.
 
-Best practice dictates handling **specific** exceptions first. However, a catch-all is sometimes necessary at the end. Since Python 3.11+, handling multiple unrelated exceptions (often from asynchronous tasks) is supported via `ExceptionGroup` and the `except*` syntax.
+- **Finally**: This block ensures a piece of code always executes, regardless of whether an exception occurred. It's commonly used for cleanup operations, such as closing files or database connections.
+
+### Generic Exception Handling vs. Handling Specific Exceptions
+
+It's good practice to **handle** specific exceptions. However, a more **general** approach can also be taken. When doing the latter, ensure the general exception handling is at the end of the chain, as shown here:
 
 ```python
 try:
     risky_operation()
-except (IndexError, KeyError):     # Handle specific standard exceptions
-    handle_lookup_error()
-except* ValueError:                # Handle part of an ExceptionGroup (Python 3.11+)
-    handle_async_validation_error()
-except Exception as e:             # General catch-all (Must be last)
-    log_generic_error(e)
+except IndexError:  # Handle specific exception types first.
+    handle_index_error()
+except Exception as e:  # More general exception must come last.
+    handle_generic_error()
 finally:
-    cleanup_resources()
+    cleanup()
 ```
 
 ### Raising Exceptions
 
-Use the `raise` keyword to trigger exceptions manually when specific conditions are not met, or to re-propagate caught exceptions.
+Use this mechanism to **trigger and manage** exceptions under specific circumstances. This can be particularly useful when building custom classes or functions where specific conditions should be met.
 
 **Raise** a specific exception:
+
 ```python
 def divide(a, b):
     if b == 0:
         raise ZeroDivisionError("Divisor cannot be zero")
     return a / b
-```
 
-**Re-raise** to propagate an error up the stack:
-```python
 try:
-    divide(10, 0)
-except ZeroDivisionError:
-    logger.error("Calculation failed")
-    raise  # Re-raises the active ZeroDivisionError
+    result = divide(4, 0)
+except ZeroDivisionError as e:
+    print(e)
 ```
 
-### Resource Management with `with`
+**Raise a general exception**:
 
-The `with` keyword is the standard for managing resources. It utilizes **Context Managers** (objects implementing `__enter__` and `__exit__`) to ensure resources are automatically released, regardless of whether the operation succeeds or fails.
+```python
+def some_risky_operation():
+    if condition: 
+        raise Exception("Some generic error occurred")
+```
+
+### Using `with` for Resource Management
+
+The `with` keyword provides a more efficient and clean way to handle resources, like files, ensuring their proper closure when operations are complete or in case of any exceptions. The resource should implement a `context manager`, typically by having `__enter__` and `__exit__` methods.
+
+Here's an example using a file:
 
 ```python
 with open("example.txt", "r") as file:
     data = file.read()
-# File is automatically closed here, even if read() raises an error.
+# File is automatically closed when the block is exited.
 ```
 
-### Control Flow: `pass`, `continue`, and `else`
+### Silence with `pass`, `continue`, or `else`
 
-Control flow keywords allow you to fine-tune how the program proceeds after handling (or avoiding) an error.
+There are times when not raising an exception is appropriate. You can use `pass` or `continue` in an exception block when you want to essentially ignore an exception and proceed with the rest of your code.
 
-- **`pass`**: Silently ignores the exception.
+- **`pass`**: Simply does nothing. It acts as a placeholder.
+
   ```python
-  except IgnorableError:
+  try:
+      risky_operation()
+  except SomeSpecificException:
       pass
   ```
-- **`continue`**: Used in loops to skip the rest of the current iteration and proceed to the next one.
+
+- **`continue`**: This keyword is generally used in loops. It moves to the next iteration without executing the code that follows it within the block.
+
   ```python
-  for item in data:
+  for item in my_list:
       try:
-          process(item)
-      except InvalidItemError:
+          perform_something(item)
+      except ExceptionType:
           continue
+      ```
+
+- **`else` with `try-except` blocks**: The `else` block after a `try-except` block will only be executed if no exceptions are raised within the `try` block
+
+  ```python
+  try:
+      some_function()
+  except SpecificException:
+      handle_specific_exception()
+  else:
+      no_exception_raised()
   ```
-- **`else`**: Placing code in the `else` block prevents the `try` block from becoming too broad. It ensures that exceptions raised by the "success logic" are not caught by the `except` block intended for the "risky logic".
 
-### Global Callback: `sys.excepthook`
+### Callback Function: `ExceptionHook`
 
-To handle **uncaught exceptions** globally (e.g., logging fatal errors before the program terminates), you can override `sys.excepthook`.
+Python 3 introduced the better handling of uncaught exceptions by providing an optional function for printing stack traces. The `sys.excepthook` can be set to match any exception in the module as long as it has a `hook` attribute.
+
+Here's an example for this test module:
 
 ```python
+# test.py
 import sys
 
-def global_exception_handler(exc_type, value, traceback):
-    print(f"Unhandled critical error: {value}")
-    # Call the default hook to ensure standard behavior (printing stack trace)
-    sys.__excepthook__(exc_type, value, traceback)
+def excepthook(type, value, traceback):
+    print("Unhandled exception:", type, value)
+    # Call the default exception hook
+    sys.__excepthook__(type, value, traceback)
 
-sys.excepthook = global_exception_handler
+sys.excepthook = excepthook
+
+def test_exception_hook():
+    throw_some_exception()
 ```
 
-*Note*: `sys.excepthook` does not capture `SystemExit` or interactive session errors like `SyntaxError`.
+When run, calling `test_exception_hook` will print "Unhandled exception: ..."
+
+_Note_: `sys.excepthook` will not capture exceptions raised as the result of interactive prompt commands, such as SyntaxError or KeyboardInterrupt.
 <br>
 
 ## 8. What is the difference between _list_ and _tuple_?
 
-**Lists** and **Tuples** are both sequence data types in Python that support indexing and slicing. However, they serve different operational purposes.
+**Lists** and **Tuples** in Python share many similarities, such as being sequences and supporting indexing.
+
+However, these data structures differ in key ways:
 
 ### Key Distinctions
 
-- **Mutability**: **Lists** are mutable, allowing dynamic modification (addition, removal, or item assignment). **Tuples** are immutable; once created, their structure cannot be changed.
-- **Performance**: **Tuples** are more memory-efficient and faster to iterate over than lists due to fixed memory allocation.
-- **Syntax**: **Lists** use square brackets `[]`. **Tuples** use parentheses `()` (though the comma `,` is the primary defining operator).
+- **Mutability**: Lists are mutable, allowing you to add, remove, or modify elements after creation. Tuples, once created, are immutable.
+
+- **Performance**: Lists are generally slower than tuples, most apparent in tasks like iteration and function calls.
+
+- **Syntax**: Lists are defined with square brackets `[]`, whereas tuples use parentheses `()`.
 
 ### When to Use Each
 
-- **Lists**: Ideal for **homogeneous** collections of data where the size or content may change (e.g., a stack of files).
-- **Tuples**: Ideal for **heterogeneous** data structures representing a single logical record (e.g., coordinates $(x, y)$ or database rows), or when a hashable key is required for a dictionary.
+- **Lists** are ideal for collections that may change in size and content. They are the preferred choice for storing data elements.
+
+- **Tuples**, due to their immutability and enhanced performance, are a good choice for representing fixed sets of related data.
 
 ### Syntax
 
-#### List: Mutable Sequence
+#### List: Example
 
 ```python
 my_list = ["apple", "banana", "cherry"]
-my_list.append("date")      # Modification allowed
-my_list[1] = "blackberry"   # Item assignment allowed
+my_list.append("date")
+my_list[1] = "blackberry"
 ```
 
-#### Tuple: Immutable Record
+#### Tuple: Example
 
 ```python
 my_tuple = (1, 2, 3, 4)
-# my_tuple[0] = 5  # Raises TypeError
-a, b, *rest = my_tuple  # Tuple unpacking
+# Unpacking a tuple
+a, b, c, d = my_tuple
 ```
 <br>
 
 ## 9. How do you create a _dictionary_ in _Python_?
 
-Here is the updated answer regarding creating dictionaries in Python, tailored for technical accuracy in 2026.
-
-**Python dictionaries** are mutable, ordered (since Python 3.7+), and versatile data structures that map unique keys to values for efficient data retrieval.
+**Python dictionaries** are versatile data structures, offering key-based access for rapid lookups. Let's explore various data within dictionaries and techniques to create and manipulate them.
 
 ### Key Concepts
 
-- A **dictionary** stores data in `key: value` pairs.
-- **Keys** must be unique and **hashable** (immutable types like strings, numbers, or tuples).
-- **Values** can be of any data type and can be duplicated.
+- A **dictionary** in Python contains a collection of `key:value` pairs.
+- **Keys** must be unique and are typically immutable, such as strings, numbers, or tuples.
+- **Values** can be of any type, and they can be duplicated.
 
-### Creation Methods
+### Creating a Dictionary
 
-There are several standard ways to instantiate a dictionary:
+You can use several methods to create a dictionary:
 
-1.  **Literal Definition**: The most common method using curly braces `{}`.
-2.  **`dict()` Constructor**: Creates a dictionary from keyword arguments or an iterable of pairs.
-3.  **Dictionary Comprehension**: A concise, functional way to construct dictionaries dynamically.
-4.  **`zip()` Function**: Combines two iterables (keys and values) into a dictionary.
-5.  **`fromkeys()` Method**: Creates a new dictionary with specified keys and a default value.
+1. **Literal Definition**: Define key-value pairs within curly braces { }.
+
+2. **From Key-Value Pairs**: Use the `dict()` constructor or the `{key: value}` shorthand.
+
+3. **Using the `dict()` Constructor**: This can accept another dictionary, a sequence of key-value pairs, or named arguments.
+
+4. **Comprehensions**: This is a concise way to create dictionaries using a single line of code.
+
+5. **`zip()` Function**: This creates a dictionary by zipping two lists, where the first list corresponds to the keys, and the second to the values.
 
 ### Examples
 
 #### Dictionary Literal Definition
 
-The most direct syntax using curly braces.
+Here is a Python code:
 
 ```python
-# Literal definition
+# Dictionary literal definition
 student = {
     "name": "John Doe",
     "age": 21,
@@ -519,204 +543,178 @@ student = {
 }
 ```
 
-#### The `dict()` Constructor
+#### From Key-Value Pairs
 
-You can pass keyword arguments or a list of tuples to the constructor.
+Here is the Python code:
 
 ```python
-# Using keyword arguments (keys must be valid identifiers)
-student_kw = dict(name="Jane Doe", age=22, courses=["Biology"])
-
-# Using a list of tuples (useful for keys that aren't valid identifiers)
-student_tuples = dict([
+# Using the `dict()` constructor
+student_dict = dict([
     ("name", "John Doe"),
     ("age", 21),
-    (101, "Room Number") 
+    ("courses", ["Math", "Physics"])
 ])
-```
 
-#### Dictionary Comprehensions
-
-Similar to list comprehensions, this syntax generates a dictionary based on an expression.
-
-```python
-numbers = [1, 2, 3, 4]
-
-# Create a dictionary mapping numbers to their squares
-squares = {x: x**2 for x in numbers}
-# Result: {1: 1, 2: 4, 3: 9, 4: 16}
+# Using the shorthand syntax
+student_dict_short = {
+    "name": "John Doe",
+    "age": 21,
+    "courses": ["Math", "Physics"]
+}
 ```
 
 #### Using `zip()`
 
-Useful when keys and values are in separate lists.
+Here is a Python code:
 
 ```python
 keys = ["a", "b", "c"]
 values = [1, 2, 3]
 
-# Zip combines them into pairs, dict converts them
-dict_from_zip = dict(zip(keys, values)) 
-# Result: {"a": 1, "b": 2, "c": 3}
+zipped = zip(keys, values)
+dict_from_zip = dict(zipped) # Result: {"a": 1, "b": 2, "c": 3}
+```
+
+#### Using `dict()` Constructor
+
+Here is a Python code:
+
+```python
+# Sequence of key-value pairs
+student_dict2 = dict(name="Jane Doe", age=22, courses=["Biology", "Chemistry"])
+
+# From another dictionary
+student_dict_combined = dict(student, **student_dict2)
 ```
 <br>
 
 ## 10. What is the difference between _==_ and _is operator_ in _Python_?
 
-Both the **`==`** and **`is`** operators in Python are used for comparison, but they distinguish between **value** and **identity**.
+Both the **`==`** and **`is`** operators in Python are used for comparison, but they function differently.
 
-- The **`==`** operator checks for **value equality**. It compares the data content of two objects to see if they are equivalent.
-- The **`is`** operator checks for **object identity**. It validates whether two variables point to the exact same instance in memory (checking if their memory addresses are identical).
+-  The **`==`** operator checks for **value equality**.
+- The **`is`** operator, on the other hand, validates **object identity**,
 
-Internally, **`is`** is faster as it compares integer memory addresses (ids), whereas **`==`** generally invokes the object's `__eq__()` method, which can be arbitrarily complex.
+In Python, every object is unique, identifiable by its memory address. The **`is`** operator uses this memory address to check if two objects are the same, indicating they both point to the exact same instance in memory.
 
-### Code Illustration
+- **`is`**: Compares the memory address or identity of two objects.
+- **`==`**: Compares the content or value of two objects.
 
-```python
-# Two lists with the same content
-list_a = [1, 2, 3]
-list_b = [1, 2, 3] 
-list_c = list_a     # Alias referring to the same object as list_a
+While **`is`** is primarily used for **None** checks, it's generally advisable to use **`==`** for most other comparisons.
 
-# Equality Check (==)
-print(list_a == list_b)  # True: The contents are the same.
+### Tips for Using Operators
 
-# Identity Check (is)
-print(list_a is list_b)  # False: They are two distinct objects in memory.
-print(list_a is list_c)  # True: They reference the exact same memory address.
-```
-
-### Usage Guidelines
-
-- **`==`**: Use this for standard comparisons (e.g., numbers, strings, lists, custom objects).
-- **`is`**: Use this specifically for checking against singletons like **`None`**, **`True`**, or **`False`**.
+- **`==`**: Use for equality comparisons, like when comparing numeric or string values.
+- **`is`**: Use for comparing membership or when dealing with singletons like **None**.
 <br>
 
 ## 11. How does a _Python function_ work?
 
-**Python functions** are the fundamental units of code organization, facilitating reusability, modularity, and encapsulation. In modern Python, they are first-class objects that contain compiled bytecode.
+**Python functions** are the building blocks of code organization, often serving predefined tasks within modules and scripts. They enable reusability, modularity, and encapsulation.
 
 ### Key Components
 
-- **Function Signature**: Defined by `def`, including the name, parameters, and optional **type hints** (standard in 2026).
-- **Function Body**: The indented block containing logic, loops, and conditional checks.
-- **Return Statement**: Terminates execution and outputs a value. Returns `None` implicitly if omitted.
-- **Local Namespace**: A discrete scope for variables defined within the function.
-
-```python
-def process_data(value: int) -> int:  # Signature with Type Hints
-    result = value * 2                # Local variable
-    return result                     # Return statement
-```
+- **Function Signature**: Denoted by the `def` keyword, it includes the function name, parameters, and an optional return type.
+- **Function Body**: This section carries the core logic, often comprising conditional checks, loops, and method invocations.
+- **Return Statement**: The function's output is determined by this statement. When None is specified, the function returns by default.
+- **Local Variables**: These variables are scoped to the function and are only accessible within it.
 
 ### Execution Process
 
-When a function is called, the Python interpreter performs the following:
+When a function is called:
 
-1.  **Frame Allocation**: A **stack frame** (activation record) is created on the call stack. This object manages the function's local variables, arguments, and the **instruction pointer**.
-2.  **Parameter Binding**: Arguments passed by the caller are bound to the parameter names in the local namespace.
-3.  **Function Execution**: Control transfers to the function body. The interpreter executes the underlying **bytecode** sequentially.
-4.  **Return**: Upon encountering `return`, the expression is evaluated, and the value is passed back to the caller. The stack frame is popped and discarded.
-5.  **Post Execution**: If the end of the body is reached without a return statement, `None` is returned automatically.
+1. **Stack Allocation**: A stack frame, also known as an activation record, is created to manage the function's execution. This frame contains details like the function's parameters, local variables, and **instruction pointer**.
+  
+2. **Parameter Binding**: The arguments passed during the function call are bound to the respective parameters defined in the function header.
+
+3. **Function Execution**: Control is transferred to the function body. The statements in the body are executed in a sequential manner until the function hits a return statement or the end of the function body.
+
+4. **Return**: If a return statement is encountered, the function evaluates the expression following the `return` and hands the value back to the caller. The stack frame of the function is then popped from the call stack.
+
+5. **Post Execution**: If there's no `return` statement, or if the function ends without evaluating any return statement, `None` is implicitly returned.
 
 ### Local Variable Scope
 
-Python resolves names using the **LEGB** rule (Local, Enclosing, Global, Built-in).
-
-- **Function Parameters**: Initialized with values passed during invocation, acting as local variables.
-- **Local Variables**: Created via assignment inside the function; they exist only during execution.
-- **Nested Scopes**: Inner functions (closures) can read variables from enclosing functions. Modification requires the `nonlocal` keyword.
-
-```python
-def outer():
-    count = 0
-    def inner():
-        nonlocal count  # Accesses enclosing scope
-        count += 1
-    inner()
-```
+- **Function Parameters**: These are a precursor to local variables and are instantiated with the values passed during function invocation.
+- **Local Variables**: Created using an assignment statement inside the function and cease to exist when the function execution ends.
+- **Nested Scopes**: In functions within functions (closures), non-local variables - those defined in the enclosing function - are accessible but not modifiable by the inner function, without using the `nonlocal` keyword.
 
 ### Global Visibility
 
-If a variable is not found in the local scope, Python looks in the **global scope**. Functions can read global variables, but modifying a global reference requires the `global` keyword. Without it, an assignment creates a new local variable, leaving the global one untouched.
+If a variable is not defined within a function, the Python runtime will look for it in the global scope. This behavior enables functions to access and even modify global variables.
 
 ### Avoiding Side Effects
 
-Functions provide encapsulation, ensuring internal variables do not leak into the global scope. Minimizing reliance on global state reduces **side effects**, resulting in "pure functions" that are easier to test, debug, and parallelize.
+Functions offer a level of encapsulation, potentially reducing side effects by ensuring that data and variables are managed within a controlled environment. Such containment can help enhance the robustness and predictability of a codebase. As a best practice, minimizing the reliance on global variables can lead to more maintainable, reusable, and testable code.
 <br>
 
 ## 12. What is a _lambda function_, and where would you use it?
 
-A **Lambda function** is a small, anonymous function defined using the `lambda` keyword in Python. Unlike functions defined with `def`, lambdas are expressions used to create function objects on the fly.
+A **Lambda function**, or **lambda**, for short, is a small anonymous function defined using the `lambda` keyword in Python.
+
+While you can certainly use named functions when you need a function for something in Python, there are places where a lambda expression is more suitable.
 
 ### Distinctive Features
 
-- **Anonymity**: Lambdas are not bound to a specific name in the local namespace.
-- **Single Expression Body**: The body is restricted to a single expression. Statements (like `return`, `pass`, `assert`) are not allowed.
-- **Implicit Return**: The result of the expression is automatically returned; no explicit `return` keyword is needed.
-- **Conciseness**: Designed for short, simple operations where a full function definition would be verbose.
+- **Anonymity**: Lambdas are not given a name in the traditional sense, making them suited for one-off uses in your codebase.
+- **Single Expression Body**: Their body is limited to a single expression. This can be an advantage for brevity but a restriction for larger, more complex functions.
+- **Implicit Return**: There's no need for an explicit `return` statement.
+- **Conciseness**: Lambdas streamline the definition of straightforward functions.
 
 ### Common Use Cases
 
-- **Key Functions**: The most prevalent use in modern Python is defining the `key` argument for sorting or finding extremes.
-- **Functional Constructs**: Used as arguments for higher-order functions like `map()`, `filter()`, and `functools.reduce()`.
-- **Callbacks**: effective for delayed execution, such as UI event handlers (e.g., a button click in Tkinter) that require a callable.
-
-#### Code Example
-
-```python
-students = [{'name': 'Alice', 'grade': 88}, {'name': 'Bob', 'grade': 95}]
-
-# 1. Using lambda as a key for sorting by grade
-sorted_students = sorted(students, key=lambda x: x['grade'], reverse=True)
-
-# 2. Using lambda with filter to get even numbers
-evens = list(filter(lambda x: x % 2 == 0, range(10)))
-```
+- **Map, Filter, and Reduce**: Functions like `map` can take a lambda as a parameter, allowing you to define simple transformations on the fly. For example, doubling each element of a list can be achieved with `list(map(lambda x: x*2, my_list))`.
+- **List Comprehensions**: They are a more Pythonic way of running the same `map` or `filter` operations, often seen as an alternative to lambdas and `map`.
+- **Sorting**: Lambdas can serve as a custom key function, offering flexibility in sort orders.
+- **Callbacks**: Often used in events where a function is needed to be executed when an action occurs (e.g., button click).
+- **Simple Functions**: For functions that are so basic that giving them a name, especially in more procedural code, would be overkill.
 
 ### Notable Limitations
 
-- **Readability**: Named functions are preferred for complex logic. Overusing lambdas, especially nested ones, creates "write-only" code.
-- **Debugging**: Tracebacks refer to the function simply as `<lambda>`, making it harder to identify the source of an error compared to a named function.
-- **PEP 8 Style**: Assigning a lambda to a variable (e.g., `func = lambda x: x`) is discouraged. Use `def func(x): return x` instead to ensure the function has a useful `__name__` for debugging.
+- **Lack of Verbose Readability**: Named functions are generally preferred when their intended use is obvious from the name. Lambdas can make code harder to understand if they're complex or not used in a recognizable pattern.
+- **No Formal Documentation**: While the function's purpose should be apparent from its content, a named function makes it easier to provide direct documentation. Lambdas would need a separate verbal explanation, typically in the code or comments.
 <br>
 
 ## 13. Explain _*args_ and _**kwargs_ in _Python_.
 
-In Python, `*args` and `**kwargs` enable functions to accept a variable number of arguments.
+In Python, `*args` and `**kwargs` are often used to pass a variable number of arguments to a function. 
 
-`*args` collects excess positional arguments into a **tuple**, while `**kwargs` gathers excess keyword arguments into a **dictionary**. Note that in a function signature, `*args` must strictly precede `**kwargs`.
+`*args` collects a variable number of positional arguments into a **tuple**, while `**kwargs` does the same for keyword arguments into a **dictionary**.
 
-### **\*args**: Variable Positional Arguments
+Here are the key features, use-cases, and their respective code examples.
 
-- **Mechanism**: The single asterisk (`*`) operator packs any remaining positional arguments into a tuple. The name `args` is a convention; the syntax depends only on the asterisk.
-- **Use-Case**: When the specific number of positional inputs is unknown or flexible.
+### **\*args**: Variable Number of Positional Arguments
 
-#### Code Example: `*args` with Type Hints
+- **How it Works**: The name `*args` is a convention. The asterisk (*) tells Python to put any remaining positional arguments it receives into a tuple.
+
+- **Use-Case**: When the number of arguments needed is uncertain.
+
+#### Code Example: "*args"
 
 ```python
-def sum_all(*args: int) -> int:
-    # args is treated as a tuple of integers
-    return sum(args)
+def sum_all(*args):
+    result = 0
+    for num in args:
+        result += num
+    return result
 
 print(sum_all(1, 2, 3, 4))  # Output: 10
 ```
 
-### **\*\*kwargs**: Variable Keyword Arguments
+### **\*\*kwargs**: Variable Number of Keyword Arguments
 
-- **Mechanism**: The double asterisk (`**`) operator captures named arguments that do not match specific parameters and stores them as key-value pairs in a dictionary.
-- **Use-Case**: When a function requires flexibility to accept arbitrary configuration options or data.
+- **How it Works**: The double asterisk (**) is used to capture keyword arguments and their values into a dictionary.
 
-#### Code Example: `**kwargs` with Type Hints
+- **Use-Case**: When a function should accept an arbitrary number of keyword arguments.
+
+#### Code Example: "**kwargs"
 
 ```python
-from typing import Any
-
-def print_values(**kwargs: Any) -> None:
-    # kwargs is a dictionary
+def print_values(**kwargs):
     for key, value in kwargs.items():
         print(f"{key}: {value}")
 
+# Keyword arguments are captured as a dictionary
 print_values(name="John", age=30, city="New York")
 # Output:
 # name: John
@@ -727,115 +725,94 @@ print_values(name="John", age=30, city="New York")
 
 ## 14. What are _decorators_ in _Python_?
 
-In Python, a **decorator** is a design pattern that allows for the dynamic modification of functions, methods, or classes. It enables the extension of behavior without explicitly modifying the source code of the wrapped object, adhering to the **Open/Closed Principle**.
+In Python, a **decorator** is a design pattern and a feature that allows you to modify functions and methods dynamically. This is done primarily to keep the code clean, maintainable, and DRY (Don't Repeat Yourself).
 
-### Core Mechanism
+### How Decorators Work
 
-- **Higher-Order Functions**: Decorators are functions that accept another function as an argument and return a new function (the wrapper).
-- **Closures**: The returned wrapper function usually retains access to the scope of the outer decorator function, allowing it to manipulate the environment or state.
-- **Metaprogramming**: This technique treats functions as data, allowing code to inspect and modify other code at runtime.
+- Decorators wrap a target function, allowing you to execute custom code before and after that function.
+- They are typically **higher-order functions** that take a function as an argument and return a new function.
+- This paradigm of "functions that modify functions" is often referred to as **metaprogramming**.
 
 ### Common Use Cases
 
-- **Cross-Cutting Concerns**: Logging, execution time profiling, and error handling.
-- **Access Control**: Authorization and authentication (e.g., checking user roles before execution).
-- **Caching**: Storing results of expensive function calls (Memoization).
-- **Input Validation**: Enforcing type checks or value constraints on arguments.
-- **Built-in Decorators**: Python includes standard decorators like `@staticmethod`, `@classmethod`, `@property`, and `@dataclass`.
+- **Authorization and Authentication**: Control user access.
+- **Logging**: Record function calls and their parameters.
+- **Caching**: Store previous function results for quick access.
+- **Validation**: Verify input parameters or function output.
+- **Task Scheduling**: Execute a function at a specific time or on an event.
+- **Counting and Profiling**: Keep track of the number of function calls and their execution time.
 
-### Implementation Examples
+### Using Decorators in Code
 
-#### 1. Basic Function Decorator
-This example demonstrates a decorator that adds logging before and after the target function runs.
+Here is the Python code:
 
 ```python
 from functools import wraps
 
-def simple_logger(func):
-    @wraps(func)  # Preserves metadata (name, docstring)
+# 1. Basic Decorator
+def my_decorator(func):
+    @wraps(func)  # Ensures the original function's metadata is preserved
     def wrapper(*args, **kwargs):
-        print(f"LOG: Starting '{func.__name__}'")
+        print('Something is happening before the function is called.')
         result = func(*args, **kwargs)
-        print(f"LOG: Finished '{func.__name__}'")
+        print('Something is happening after the function is called.')
         return result
     return wrapper
 
-@simple_logger
-def greet(name):
-    """Greets the user."""
-    print(f"Hello, {name}!")
+@my_decorator
+def say_hello():
+    print('Hello!')
 
-greet("Alice")
-# Output:
-# LOG: Starting 'greet'
-# Hello, Alice!
-# LOG: Finished 'greet'
-```
+say_hello()
 
-#### 2. Decorators Accepting Arguments
-To pass arguments to the decorator itself, three levels of nested functions are required.
-
-```python
-def repeat(times):
-    def decorator_repeat(func):
+# 2. Decorators with Arguments
+def decorator_with_args(arg1, arg2):
+    def actual_decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-            for _ in range(times):
-                result = func(*args, **kwargs)
+            print(f'Arguments passed to decorator: {arg1}, {arg2}')
+            result = func(*args, **kwargs)
             return result
         return wrapper
-    return decorator_repeat
+    return actual_decorator
 
-@repeat(times=3)
-def say_hi():
-    print("Hi!")
+@decorator_with_args('arg1', 'arg2')
+def my_function():
+    print('I am decorated!')
 
-say_hi()
-# Output:
-# Hi!
-# Hi!
-# Hi!
+my_function()
 ```
 
-### Syntactic Sugar
+### Decorator Syntax in Python
 
-The `@decorator_name` syntax is syntactic sugar for passing the function into the decorator and reassigning the result to the original function name.
+The `@decorator` syntax is a convenient shortcut for:
 
 ```python
-# The @ syntax:
-@simple_logger
-def do_work():
-    pass
-
-# Is equivalent to:
-def do_work():
-    pass
-do_work = simple_logger(do_work)
+def say_hello():
+    print('Hello!')
+say_hello = my_decorator(say_hello)
 ```
 
-### Best Practices: `functools.wraps`
+### Role of **functools.wraps**
 
-When writing custom decorators, always decorate the wrapper function with `@wraps(func)` from the `functools` module. Without this, the decorated function loses its original `__name__`, `__doc__`, and other metadata, which confuses debugging tools and introspection APIs.
+When defining decorators, particularly those that return functions, it is good practice to use `@wraps(func)` from the `functools` module. This ensures that the original function's metadata, such as its name and docstring, is preserved.
 <br>
 
 ## 15. How can you create a _module_ in _Python_?
 
-### Creating a Module in Python
+You can **create** a Python module through one of two methods:
 
-A **module** in Python is simply a file containing Python definitions (functions, classes, variables) and statements. The file name becomes the module name, and it must have the `.py` extension.
+- **Define**: Begin with saving a Python file with `.py` extension. This file will automatically function as a module. 
 
-To **create** a module:
-1.  **Create a File**: Save a text file with a `.py` extension (e.g., `math_operations.py`).
-2.  **Define Content**: Write your Python code inside this file.
-3.  **Import**: Use the `import` command in another script to access the code.
+- **Create a Blank Module**: Start an empty file with no extension. Name the file using the accepted module syntax, e.g., `__init__ `, for it to act as a module. 
 
-*(Note: To organize multiple modules into a directory structure, you create a **package**, which typically involves adding an `__init__.py` file to the directory.)*
+Next, use **import** to access the module and its functionality.
 
 ### Code Example: Creating a `math_operations` Module
 
 #### Module Definition
 
-Save the code below in a file named `math_operations.py`:
+Save the below `math_operations.py` file :
 
 ```python
 def add(x, y):
@@ -848,50 +825,44 @@ def multiply(x, y):
     return x * y
 
 def divide(x, y):
-    if y == 0:
-        raise ValueError("Cannot divide by zero")
     return x / y
 ```
 
 #### Module Usage
 
-You can use the `math_operations` module in another script (in the same directory) using `import`:
+You can use `math_operations` module by using import as shown below:
 
 ```python
 import math_operations
 
 result = math_operations.add(4, 5)
-print(result)  # Output: 9
+print(result)
 
 result = math_operations.divide(10, 5)
-print(result)  # Output: 2.0
+print(result)
 ```
 
-You can also import specific members directly into the namespace, or use the wildcard `*` (though `*` is generally discouraged to avoid name collisions):
+Even though it is not required in the later **versions of Python**, you can also use statement `from math_operations import *` to import all the members such as functions and classes at once:
 
 ```python
-from math_operations import add, subtract
+from math_operations import *  # Not recommended generally due to name collisions and readability concerns
 
-# No need to use the module prefix
-print(add(3, 2))
+result = add(3, 2)
+print(result)
 ```
 
-### Best Practices
+### Best Practice
+Before submitting the code, let's make sure to follow the **Best Practice**:
 
-Ensure your modules are robust and reusable by following these practices:
-
-*   **Guard Against Side Effects**: Code at the top level of a module executes immediately upon import. To prevent test code or scripts from running when the module is imported, wrap execution logic in the `if __name__ == "__main__":` block.
+- **Avoid Global Variables**: Use a `main()` function.
+- **Guard Against Code Execution on Import**: To avoid unintended side effects, use:
 
 ```python
 if __name__ == "__main__":
-    # This runs only when executed as 'python math_operations.py'
-    # It does NOT run when imported
-    print("Running manual tests...")
-    print(add(10, 5))
+    main()
 ```
 
-*   **Avoid Global Variables**: Encapsulate state within classes or functions rather than relying on global module variables.
-*   **Naming**: Module names should be short, all-lowercase, and may use underscores for readability (e.g., `my_module.py`).
+This makes sure that the block of code following `if __name__ == "__main__":` is only executed when the module is run directly and not when imported as a module in another program.
 <br>
 
 
