@@ -935,6 +935,105 @@ if __name__ == "__main__":
 This ensures that the block following `if __name__ == "__main__":` only runs when the script is executed directly, keeping the module "clean" for external imports.
 <br>
 
+## 16. What are _async_/_await_ in _Python_, and how does the _event loop_ work?
+
+`async`/`await` is Python's native syntax (introduced in **PEP 492**, Python 3.5) for writing **coroutine-based concurrency**. It enables a single thread to handle thousands of **I/O-bound** operations cooperatively, without the overhead of OS threads or the contention of the **Global Interpreter Lock (GIL)**.
+
+### Concurrency vs. Parallelism
+
+A crucial distinction that interviewers probe:
+
+- **Concurrency**: Dealing with many tasks by **interleaving** their execution (one CPU core, tasks take turns). This is what `asyncio` provides.
+- **Parallelism**: Executing many tasks **simultaneously** on multiple cores (e.g., `multiprocessing`).
+
+Because of the **GIL**, `asyncio` does *not* speed up **CPU-bound** work — it shines for **I/O-bound** workloads (network calls, disk, databases) where the program would otherwise sit idle waiting on `read()`/`write()` syscalls.
+
+### How the Event Loop Works
+
+The **event loop** is the orchestrator. It maintains a queue of ready-to-run tasks and a set of resources being awaited (sockets, timers).
+
+1. A coroutine runs until it hits an `await` on something not yet ready (e.g., a network response).
+2. At that point it **yields control** back to the loop, returning a state machine that "remembers" where it paused.
+3. The loop registers the awaited resource (often via `selectors`/`epoll`/`kqueue`) and runs **other** ready tasks.
+4. When the OS signals the resource is ready, the loop **resumes** the suspended coroutine exactly where it left off.
+
+This cooperative model means a single blocking call (e.g., `time.sleep`, a heavy CPU loop) **freezes the entire loop**, starving every other task.
+
+### Coroutines, Awaitables, and Tasks
+
+- **Coroutine**: The object returned by calling an `async def` function. Calling it does **nothing** until it is awaited or scheduled.
+- **Awaitable**: Anything usable with `await` — coroutines, `Task`s, and `Future`s.
+- **Task**: A coroutine *wrapped and scheduled* on the loop so it runs concurrently with others.
+
+```python
+import asyncio
+
+async def fetch(name: str, delay: float) -> str:
+    await asyncio.sleep(delay)  # non-blocking; yields to the loop
+    return f"{name} done in {delay}s"
+
+async def main() -> None:
+    # Sequential: ~3s total (each awaited one after another)
+    print(await fetch("A", 1))
+    print(await fetch("B", 2))
+
+asyncio.run(main())  # asyncio.run sets up and tears down the loop
+```
+
+### Running Coroutines Concurrently
+
+The real value appears when tasks overlap. A common interview trap is awaiting calls sequentially when they could be concurrent.
+
+```python
+import asyncio
+
+async def fetch(name: str, delay: float) -> str:
+    await asyncio.sleep(delay)
+    return name
+
+# Modern, structured approach (Python 3.11+): TaskGroup
+async def main() -> None:
+    async with asyncio.TaskGroup() as tg:
+        t1 = tg.create_task(fetch("A", 1))
+        t2 = tg.create_task(fetch("B", 2))
+    # Block exits only when all tasks finish (~2s, not 3s)
+    print(t1.result(), t2.result())
+
+asyncio.run(main())
+```
+
+`asyncio.TaskGroup` is preferred over the older `asyncio.gather` because it provides **structured concurrency**: if one child task raises, the others are **cancelled**, and exceptions propagate together via an `ExceptionGroup` (catchable with `except*`).
+
+### Async Context Managers and Iterators
+
+Modern async code frequently uses `async with` and `async for`, backed by `__aenter__`/`__aexit__` and `__anext__`.
+
+```python
+import asyncio
+from collections.abc import AsyncIterator
+
+async def stream_lines() -> AsyncIterator[int]:
+    for i in range(3):
+        await asyncio.sleep(0.1)
+        yield i  # this is an async generator
+
+async def main() -> None:
+    async for value in stream_lines():
+        print(value)
+
+asyncio.run(main())
+```
+
+### Common Pitfalls
+
+- **Forgetting `await`**: `fetch(...)` alone creates a coroutine that never runs and emits a `RuntimeWarning: coroutine was never awaited`.
+- **Blocking the loop**: Calling synchronous blocking code (e.g., `requests.get`, `time.sleep`) stalls everything. Offload it with `await asyncio.to_thread(blocking_fn, ...)`.
+- **Fire-and-forget tasks**: A `Task` referenced by nothing can be garbage-collected mid-flight; keep a reference or use a `TaskGroup`.
+- **Mixing sync and async**: You cannot `await` inside a regular `def`, and you cannot call `asyncio.run()` from within an already-running loop.
+
+In professional 2026 development, `async`/`await` underpins high-throughput web frameworks (FastAPI, ASGI servers like Uvicorn) and is the standard for scalable network services where threads would be too costly.
+<br>
+
 
 
 #### Explore all 100 answers here 👉 [Devinterview.io - Python](https://devinterview.io/questions/web-and-mobile-development/python-interview-questions)
